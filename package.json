@@ -1,7 +1,7 @@
 {
   "name": "shenron",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "When you’re going out somewhere, you find a place to groom your pet, find a pet park, find pet stores, or find someone to watch them, etc",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -7,6 +7,7 @@ exports.register = function (req, res) {
     "last_name": req.body.last_name,
     "email": req.body.email,
     "password": req.body.password,
+    //HASHBYTES('SHA2_512', @pPassword)
     "created": today,
     "modified": today
   };

@@ -16,7 +16,7 @@ app.use(
 app.use(express.json());
 app.use(express.static("public"));
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
 var router = express.Router();
 
 // test route
-router.get("/", function (req, res) {
+router.get("/", function(req, res) {
   res.json({
     message: "Welcome to our upload module apis"
   });
@@ -64,8 +64,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function () {
-  app.listen(PORT, function () {
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,

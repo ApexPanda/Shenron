@@ -5,6 +5,7 @@ exports.register = function (req, res) {
   var users = {
     "first_name": req.body.first_name,
     "last_name": req.body.last_name,
+    "role": req.body.role,
     "email": req.body.email,
     "password": req.body.password,
     //HASHBYTES('SHA2_512', @pPassword)

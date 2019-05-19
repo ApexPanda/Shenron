@@ -8,6 +8,28 @@ module.exports = function (app) {
     });
   });
 
+  // Get service users
+  app.get("/api/users", function (req, res) {
+    db.users_table.findAll({
+      where: {
+        ex: 1
+      }
+    }).then(function (dbUsers) {
+      res.json(dbUsers);
+    });
+  });
+
+  // Get pet owners users
+  app.get("/api/users", function (req, res) {
+    db.users_table.findAll({
+      where: {
+        ex: 1
+      }
+    }).then(function (dbUsers) {
+      res.json(dbUsers);
+    });
+  });
+
   // Create a new user
   app.post("/api/users", function (req, res) {
     db.users_table.create(req.body).then(function (dbUser) {

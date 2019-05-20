@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(".dropdown-trigger").dropdown();
   $(".dropdown-trigger-collapse").dropdown();
   $(".sidenav").sidenav();
-
+  
 });
 
 

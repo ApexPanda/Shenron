@@ -7,7 +7,8 @@ module.exports = function (app) {
     res.locals.metaTags = {
       title: "Fur Butlr",
       description: "A place where pet owners can find all thier needs in one place!",
-      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks"
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "index"
     };
     res.render("index", {
       layout: "main"
@@ -19,7 +20,8 @@ module.exports = function (app) {
     res.locals.metaTags = {
       title: "Sign Up for Fur Butlr",
       description: "A place where pet owners can find all thier needs in one place!",
-      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks"
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "sign-up"
     };
     res.render("signUp", {
       layout: "main"

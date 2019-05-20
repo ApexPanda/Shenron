@@ -1,6 +1,15 @@
-body {
+body.index {
   background-color: #ffff;
-  background-image: url("../images/site/AdobeStock_38214291_Preview.jpeg");
+  background-image: url("../images/site/index.jpeg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+body.sign-up {
+  background-color: #ffff;
+  background-image: url("../images/site/sign-up.jpeg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;

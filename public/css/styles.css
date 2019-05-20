@@ -20,3 +20,6 @@ body.sign-up {
   padding-left: 2em;
   padding-right: 2em;
 }
+p.main-text {
+  font-size: 3em;
+}

@@ -25,11 +25,11 @@
         <a href="#" data-target="mobile-collapse" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             {{!-- Dropdown Trigger --}}
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
+            <li><a class="dropdown-trigger waves-effect" href="#!" data-target="dropdown1"><i
                         class="material-icons left">search</i>Search
                     Options<i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a href="#!">Login</a></li>
-            <li><a href="/signUp">Sign-Up</a></li>
+            <li><a class="waves-effect modal-trigger" href="#modal1">Login</a></li>
+            <li><a class="waves-effect" href="/signUp">Sign-Up</a></li>
         </ul>
     </div>
 </nav>
@@ -43,3 +43,14 @@
     <li><a href="/signUp">Sign-Up</a></li>
 </ul>
 {{!-- END NAVBAR ========================================== --}}
+
+{{!-- <!-- Modal Structure --> --}}
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Log In</h4>
+        <p>Form Goes Here</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Login</a>
+    </div>
+</div>

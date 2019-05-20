@@ -2,20 +2,27 @@ var db = require("../models");
 
 module.exports = function (app) {
   // Load index page
-
   app.get("/", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      // This will load title and description for each page separately=================================
-      res.locals.metaTags = {
-        title: "Fur Butlr",
-        description: "A place where pet owners can find all thier needs in one place!",
-        keywords: "pet grooming, pet sitting, pet walking"
-      };
-      res.render("index", {
-        layout: "main",
-        msg: "Welcome!",
-        examples: dbExamples
-      });
+    // This will load title and description for each page separately=================================
+    res.locals.metaTags = {
+      title: "Fur Butlr",
+      description: "A place where pet owners can find all thier needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks"
+    };
+    res.render("index", {
+      layout: "main"
+    });
+  });
+
+  app.get("/signUp", function (req, res) {
+    // This will load title and description for each page separately=================================
+    res.locals.metaTags = {
+      title: "Sign Up for Fur Butlr",
+      description: "A place where pet owners can find all thier needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks"
+    };
+    res.render("signUp", {
+      layout: "main"
     });
   });
 

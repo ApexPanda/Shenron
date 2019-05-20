@@ -28,6 +28,32 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/userProfile", function (req, res) {
+    // This will load title and description for each page separately=================================
+    res.locals.metaTags = {
+      title: "Your Profile",
+      description: "A place where pet owners can find all thier needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "user-profile"
+    };
+    res.render("userProfile", {
+      layout: "main"
+    });
+  });
+
+  app.get("/results", function (req, res) {
+    // This will load title and description for each page separately=================================
+    res.locals.metaTags = {
+      title: "Matches for you!",
+      description: "A place where pet owners can find all thier needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "results"
+    };
+    res.render("results", {
+      layout: "main"
+    });
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function (req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function (

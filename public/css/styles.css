@@ -1,5 +1,8 @@
+body {
+  background-color: rgb(20, 20, 88);
+}
+
 body.index {
-  background-color: #ffff;
   background-image: url("../images/site/index.jpeg");
   height: 100%;
   background-position: center;
@@ -8,8 +11,15 @@ body.index {
   background-attachment: fixed;
 }
 body.sign-up {
-  background-color: #ffff;
   background-image: url("../images/site/sign-up.jpeg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+body.results {
+  background-image: url("../images/site/results.jpeg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;

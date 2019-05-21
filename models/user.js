@@ -1,10 +1,14 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    role: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
   });
   return User;
 };
+
 
 
 // User.associate = function(models) {

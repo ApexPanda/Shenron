@@ -1,5 +1,7 @@
 --
-INSERT INTO users_table(first_name, last_name, role, email, password, created, modified) VALUES ("Betsy", "Smith", "Pet Owner", "betsy.smith@gmail.com", "password234", "2019-05-05 01:01:00", "2019-05-05 01:01:00");
-INSERT INTO users_table(first_name, last_name, role, email, password, created, modified) VALUES ("John", "Hammerford", "Salon Owner", "anemail@yahoo.com", "passwor234234", "2019-05-05 01:01:00", "2019-05-05 01:01:00");
-INSERT INTO users_table(first_name, last_name, role, email, password, created, modified) VALUES ("Lauren", "Oswald", "Dog Walker", "unicornFlower@gmail.com", "passworsdfs", "2019-05-05 01:01:00", "2019-05-05 01:01:00");
-INSERT INTO users_table(first_name, last_name, role, email, password, created, modified) VALUES ("Billy", "McMann", "Pet Owner", "billMc@aol.com", "passwordo7yuk", "2019-05-05 01:01:00", "2019-05-05 01:01:00");
+USE fur_db;
+
+INSERT INTO users_table(first_name, last_name, role, email, password) VALUES ("Betsy", "Smith", "Pet Owner", "betsy.smith@gmail.com", "password234");
+INSERT INTO users_table(first_name, last_name, role, email, password) VALUES ("John", "Hammerford", "Salon Owner", "anemail@yahoo.com", "passwor234234");
+INSERT INTO users_table(first_name, last_name, role, email, password) VALUES ("Lauren", "Oswald", "Dog Walker", "unicornFlower@gmail.com", "passworsdfs");
+INSERT INTO users_table(first_name, last_name, role, email, password) VALUES ("Billy", "McMann", "Pet Owner", "billMc@aol.com", "passwordo7yuk");

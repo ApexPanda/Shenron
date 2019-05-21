@@ -3,6 +3,7 @@ var bcrypt = require("bcrypt");
 // Hash password
 exports.cryptPassword = function(password, callback) {
   bcrypt.genSalt(10, function(err, salt) {
+    // eslint-disable-next-line curly
     if (err) 
       return callback(err);
 

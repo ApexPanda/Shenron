@@ -48,6 +48,10 @@ p.main-text {
 .left-margin-0 {
   margin-left: 0;
 }
-/* .profile-heading {
-  font-size: 
+div.card-image {
+  width: 200px; 
+}
+/* Just for testing */
+/* .container {
+  border: solid 1px;
 } */

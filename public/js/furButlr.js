@@ -1,9 +1,10 @@
 $(document).ready(function () {
-  // NavBar================================================
+  // NavBar ===============================================
   $(".dropdown-trigger").dropdown();
   $(".dropdown-trigger-collapse").dropdown();
   $(".sidenav").sidenav();
-  // Modal ================================================
+
+  // Modal Initialization =================================
   $(".modal").modal();
   
 });

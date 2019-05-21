@@ -1,3 +1,5 @@
+{{> navBar}}
+
 <div class="container">
     <div class="col s12 z-depth-6 card-panel">
         <div class="container">
@@ -20,30 +22,26 @@
                     </div>
                 </div>
                 <div class="row margin">
-                    <div class="col s6 input-field">
-                        <p>
-                            <label>
-                                <input type="checkbox" checked="checked" />
-                                <span>Pet Owner</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col s6 input-field">
-                        <p>
-                            <label>
-                                <input type="checkbox" checked="checked" />
-                                <span>Service Provider</span>
-                            </label>
-                        </p>
-                    </div>
+                    <p>
+                        <label>
+                            <input name="group1" type="radio" id="pet-owner" checked />
+                            <span>Pet Owner</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="group1" type="radio" id="service-provider" />
+                            <span>Service Provider</span>
+                        </label>
+                    </p>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <select>
-                            <option value="" disabled selected>Select Option</option>
-                            <option value="1">Pet Walker</option>
-                            <option value="2">Pet Groomer</option>
-                            <option value="3">Pet Sitter</option>
+                        <select id="job-title">
+                            <option value="None" disabled selected>Select Option</option>
+                            <option value="Walker">Pet Walker</option>
+                            <option value="Groomer">Pet Groomer</option>
+                            <option value="Sitter">Pet Sitter</option>
                         </select>
                         <label>Job Title</label>
                     </div>
@@ -68,7 +66,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <a href="#" class="btn waves-effect waves-light col s12">Register Now</a>
+                        <a href="#" id="register-btn" class="btn waves-effect waves-light col s12">Register Now</a>
                     </div>
                     <div class="input-field col s12">
                         <p class="margin center medium-small sign-up">Already have an account? <a
@@ -80,7 +78,5 @@
         </div>
     </div>
 </div>
-<script>
-    $('select').formSelect();
-</script>
+
 <script src="./js/signUp.js"></script>

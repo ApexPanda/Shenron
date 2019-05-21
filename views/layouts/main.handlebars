@@ -2,8 +2,11 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Fur Butlr</title>
+
+  <meta charset="UTF-8">
+  <title>{{metaTags.title}}</title>
+  <meta name="description" content="{{metaTags.description}}">
+  <meta name="keywords" content="{{metaTags.keywords}}">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     type="text/css">
@@ -15,7 +18,7 @@
   <script src="./js/furButlr.js"></script>
 </head>
 
-<body>
+<body class="{{metaTags.bg}}">
 
   {{{body}}}
 

@@ -2,7 +2,17 @@ $(document).ready(function () {
 
     $("select").formSelect();
 
+    $(".profile-type").on("click", function () {
+        if ($("#service-provider:checked").val() === "on") {
+            $("#jobs-div").removeClass("hide");
+        } else {
+            $("#jobs-div").addClass("hide");
+        }
+    });
+
     $("#register-btn").on("click", function () {
+
+
         var firstName = $("#first-name").val().trim();
         var lastName = $("#last-name").val().trim();
         if ($("#pet-owner:checked").val() === "on") {
@@ -22,14 +32,22 @@ $(document).ready(function () {
         }
         var email = $("#email").val().trim();
         var password = $("#password").val().trim();
+        var passwordCheck = $("#password-again").val().trim();
 
-        console.log("firstName: " + firstName);
-        console.log("lastName: " + lastName);
-        console.log("petOwner: " + petOwner);
-        console.log("serviceProvider: " + serviceProvider);
-        console.log("jobTitle: " + jobTitle);
-        console.log("email: " + email);
-        console.log("password: " + password);
+        if (password !== passwordCheck) {
 
+            alert("Passwords do not match.");
+
+        } else {
+
+            console.log("firstName: " + firstName);
+            console.log("lastName: " + lastName);
+            console.log("petOwner: " + petOwner);
+            console.log("serviceProvider: " + serviceProvider);
+            console.log("jobTitle: " + jobTitle);
+            console.log("email: " + email);
+            console.log("password: " + password);
+
+        }
     });
 });

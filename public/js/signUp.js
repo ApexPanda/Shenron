@@ -12,7 +12,6 @@ $(document).ready(function () {
 
     $("#register-btn").on("click", function () {
 
-
         var firstName = $("#first-name").val().trim();
         var lastName = $("#last-name").val().trim();
         if ($("#pet-owner:checked").val() === "on") {
@@ -26,7 +25,18 @@ $(document).ready(function () {
             var serviceProvider = 0;
         }
         if ($("#service-provider:checked").val() === "on") {
-            var jobTitle = $("#job-title").val().trim();
+
+            console.log($("#job-title").val());
+            if ($("#job-title").val() === null) {
+
+                alert("Select a job title.");
+
+            } else {
+
+                var jobTitle = $("#job-title").val().trim();
+
+            }
+
         } else {
             var jobTitle = "None";
         }
@@ -34,7 +44,11 @@ $(document).ready(function () {
         var password = $("#password").val().trim();
         var passwordCheck = $("#password-again").val().trim();
 
-        if (password !== passwordCheck) {
+        if (firstName.length === 0 || lastName.length === 0 || email.length === 0 || password.length === 0) {
+
+            alert("all fields must be filled out");
+
+        } else if (password !== passwordCheck) {
 
             alert("Passwords do not match.");
 

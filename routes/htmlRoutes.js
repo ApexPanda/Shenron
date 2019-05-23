@@ -63,10 +63,14 @@ module.exports = function (app) {
       dbExample
 
     ) {
-      res.render("example", {	     
+      res.render("example", {
         example: dbExample
       });
     });
+  });
+
+  app.get("/signup", function (req, res) {
+    res.render("signUp", {});
   });
 
   // Render 404 page for any unmatched routes

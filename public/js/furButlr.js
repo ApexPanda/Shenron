@@ -5,7 +5,7 @@ $(document).ready(function () {
   $(".sidenav").sidenav();
   // Modal ================================================
   $(".modal").modal();
-  
+
 });
 
 

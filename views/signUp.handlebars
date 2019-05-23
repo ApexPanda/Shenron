@@ -1,11 +1,80 @@
 {{> navBar}}
 
-<div class="container main-content valign-wrapper">
-    <div class="row right-margin-0">
-        <div class="col s12 m6 white-text right">
-            <p class="main-text">
-                This is the signup page
-            </p>
+<div class="container">
+    <div class="col s12 z-depth-6 card-panel">
+        <div class="container">
+
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <img src="" alt="logo image" class="responsive-img valign profile-image-login">
+                        <h1>Sign Up</h1>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s6">
+                        <input id="first-name" type="text" class="validate">
+                        <label for="first-name" class="center-align">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last-name" type="text" class="validate">
+                        <label for="last-name" class="center-align">Last Name</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <p>
+                        <label>
+                            <input name="group1" type="radio" id="pet-owner" class="profile-type" checked />
+                            <span>Pet Owner</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="group1" type="radio" id="service-provider" class="profile-type" />
+                            <span>Service Provider</span>
+                        </label>
+                    </p>
+                </div>
+                <div id="jobs-div" class="row margin hide">
+                    <div class="input-field col s12">
+                        <select id="job-title">
+                            <option value="None" disabled selected>Select Option</option>
+                            <option value="Walker">Pet Walker</option>
+                            <option value="Groomer">Pet Groomer</option>
+                            <option value="Sitter">Pet Sitter</option>
+                        </select>
+                        <label>Job Title</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email" class="center-align">Email</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <input id="password-again" type="password">
+                        <label for="password-again">Re-type password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" id="register-btn" class="btn waves-effect waves-light col s12">Register Now</a>
+                    </div>
+                    <div class="input-field col s12">
+                        <p class="margin center medium-small sign-up">Already have an account? <a
+                                href="login.html">Login</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

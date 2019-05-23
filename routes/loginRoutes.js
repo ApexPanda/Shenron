@@ -46,10 +46,7 @@ exports.login = function (req, res) {
   // stores email and password to login
   var email = req.body.email;
   var password = req.body.password;
-<<<<<<< HEAD
-=======
   // query to find that user
->>>>>>> bd76887431e77b3be072b90c89620bae53d74d2d
   connection.query("SELECT * FROM users WHERE email = ?", [email],
     function (error, results, fields) {
       // 400 if failed
@@ -61,15 +58,9 @@ exports.login = function (req, res) {
         });
       } else {
         console.log("The solution is: ", results);
-<<<<<<< HEAD
-        console.log("exports.login > req.body.email: " + email);
-        console.log("password: " + password);
-        if (results.password === password) {
-=======
         // checks if password entered is equal to the password in the db
         if (results[0].password === password) {
           // 200 if successful
->>>>>>> bd76887431e77b3be072b90c89620bae53d74d2d
           res.send({
             "code": 200,
             "success": "Login Successful"

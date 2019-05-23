@@ -24,7 +24,7 @@ body.sign-up {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 body.results {
   background-image: url("../images/site/results.jpeg");
@@ -51,3 +51,23 @@ p.main-text {
 /* .profile-heading {
   font-size: 
 } */
+
+#profile-header {
+  width: 100%;
+  height: 200px;
+}
+
+.pet-image {
+  height: 200px;
+  width: 200px;
+}
+
+.profile-image {
+  height: 200px;
+  width: 200px;
+}
+
+.content-padding {
+  padding: 10px;
+}
+

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 var db = require("../models");
 // var connection = require("../config/connection.js");
 
@@ -13,7 +14,7 @@ module.exports = function (app) {
   app.get("/api/users", function (req, res) {
     db.User.findAll({
       where: {
-        ex: 1
+        service_provider: 1
       }
     }).then(function (dbUser) {
       res.json(dbUser);
@@ -24,7 +25,7 @@ module.exports = function (app) {
   app.get("/api/users", function (req, res) {
     db.User.findAll({
       where: {
-        ex: 1
+        pet_owners: 1
       }
     }).then(function (dbUser) {
       res.json(dbUser);

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 var db = require("../models");
 // var connection = require("../config/connection.js");
 
@@ -10,10 +11,10 @@ module.exports = function (app) {
   });
 
   // Get service users
-  app.get("/api/users", function (req, res) {
+  app.get("/api/users/service", function (req, res) {
     db.User.findAll({
       where: {
-        ex: 1
+        service_provider: 1
       }
     }).then(function (dbUser) {
       res.json(dbUser);
@@ -21,10 +22,10 @@ module.exports = function (app) {
   });
 
   // Get pet owners users
-  app.get("/api/users", function (req, res) {
+  app.get("/api/users/owners", function (req, res) {
     db.User.findAll({
       where: {
-        ex: 1
+        pet_owner: 1
       }
     }).then(function (dbUser) {
       res.json(dbUser);
@@ -32,7 +33,8 @@ module.exports = function (app) {
   });
 
   // Get one user
-  app.get("/api/users:id", function (req, res) {
+  app.get("/api/users/:id", function (req, res) {
+    console.log(req.params.id);
     db.User.findAll({
       where: {
         id: req.params.id
@@ -49,14 +51,15 @@ module.exports = function (app) {
     });
   });
 
-  // Delete a user by id
-  app.delete("/api/users/:id", function (req, res) {
-    db.User.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbUser) {
-      res.json(dbUser);
-    });
-  });
+  // I don't think we need to delete an ID so commented this out 
+  // // Delete a user by id
+  // app.delete("/api/users/:id", function (req, res) {
+  //   db.User.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function (dbUser) {
+  //     res.json(dbUser);
+  //   });
+  // });
 };

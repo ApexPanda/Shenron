@@ -5,7 +5,23 @@ $(document).ready(function () {
   $(".sidenav").sidenav();
   // Modal ================================================
   $(".modal").modal();
-  
+
+  // Login event listener =================================
+  // NOT WORKING!!!!!!!!!!!!!!
+  $(document).on("click", "#login-submit", function (event) {
+    event.preventDefault();
+    $.ajax({
+      url: "/api/login",
+      method: "POST",
+      data: {
+        email: $("#email").val().trim(),
+        password: $("#pass").val().trim()
+      }
+    });
+    console.log(data);
+    location.reload();
+  });
+
 });
 
 

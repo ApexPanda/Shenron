@@ -1,3 +1,6 @@
+var connection = require("../config/connection.js");
+var exports = module.exports = {};
+
 /* eslint-disable prettier/prettier */
 exports.register = function (req, res) {
   console.log("req", req.body);
@@ -41,13 +44,16 @@ exports.login = function (req, res) {
         });
       } else {
         console.log("The solution is: ", results);
-        if (results[0].password === password) {
+        console.log("exports.login > req.body.email: " + email);
+        console.log("password: " + password);
+        if (results.password === password) {
           res.send({
             "code": 200,
             "success": "Login Successful"
           });
         }
       }
-      console.log(fields);
+      console.log("fields: " + fields);
+
     });
 };

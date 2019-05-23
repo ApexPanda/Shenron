@@ -13,7 +13,7 @@ exports.register = function (req, res) {
     "created": today,
     "modified": today
   };
-  RTCPeerConnection.query("INSERT INTO users_table SET ?", users, function (error, results, fields) {
+  RTCPeerConnection.query("INSERT INTO users SET ?", users, function (error, results, fields) {
     if (error) {
       console.log("Error ocurred", error);
       res.send({
@@ -34,7 +34,7 @@ exports.register = function (req, res) {
 exports.login = function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
-  connection.query("SELECT * FROM users_table WHERE email = ?", [email],
+  connection.query("SELECT * FROM users WHERE email = ?", [email],
     function (error, results, fields) {
       if (error) {
         console.log("Error ocurred", error);

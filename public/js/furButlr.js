@@ -7,18 +7,17 @@ $(document).ready(function () {
   $(".modal").modal();
 
   // Login event listener =================================
-  // NOT WORKING!!!!!!!!!!!!!!
   $(document).on("click", "#login-submit", function (event) {
     event.preventDefault();
     $.ajax({
       url: "/api/login",
-      method: "POST",
+      method: "GET",
       data: {
-        email: $("#email").val().trim(),
+        email: $("#login-email").val().trim(),
         password: $("#pass").val().trim()
       }
     });
-    console.log(data);
+    console.log("");
     location.reload();
   });
 

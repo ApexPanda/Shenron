@@ -6,6 +6,21 @@ $(document).ready(function () {
   // Modal ================================================
   $(".modal").modal();
 
+  // Login event listener =================================
+  $(document).on("click", "#login-submit", function (event) {
+    event.preventDefault();
+    $.ajax({
+      url: "/api/login",
+      method: "GET",
+      data: {
+        email: $("#login-email").val().trim(),
+        password: $("#pass").val().trim()
+      }
+    });
+    console.log("");
+    location.reload();
+  });
+
 });
 
 

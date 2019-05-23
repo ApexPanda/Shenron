@@ -1,3 +1,6 @@
+var connection = require("../config/connection.js");
+var exports = module.exports = {};
+
 /* eslint-disable prettier/prettier */
 
 // register route
@@ -64,6 +67,7 @@ exports.login = function (req, res) {
           });
         }
       }
-      console.log(fields);
+      console.log("fields: " + fields);
+
     });
 };

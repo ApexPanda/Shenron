@@ -48,8 +48,9 @@ p.main-text {
 .left-margin-0 {
   margin-left: 0;
 }
-/* .profile-heading {
-  font-size: 
+/* For Testing MediaQuery */
+/* .container {
+  border: 1px solid;
 } */
 
 #profile-header {

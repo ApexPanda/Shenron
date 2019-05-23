@@ -52,7 +52,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/api-User-Routes")(app);
+// require("./routes/api-Pet-Routes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {
@@ -61,7 +62,7 @@ var syncOptions = {
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
+if (process.env.NODE_ENV === "development") {
   syncOptions.force = true;
 }
 

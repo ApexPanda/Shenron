@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 $(document).ready(function () {
 
     $("select").formSelect();
@@ -26,7 +27,6 @@ $(document).ready(function () {
         }
         if ($("#service-provider:checked").val() === "on") {
 
-            console.log($("#job-title").val());
             if ($("#job-title").val() === null) {
 
                 alert("Select a job title.");

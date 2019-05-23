@@ -63,7 +63,7 @@ module.exports = function (app) {
       dbExample
 
     ) {
-      res.render("example", {	     
+      res.render("example", {
         example: dbExample
       });
     });

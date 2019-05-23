@@ -1,7 +1,5 @@
 var db = require("../models");
-var connection = require("../config/connection.js");
-
-console.log("THIS IS THE CONNECTION" + connection);
+// var connection = require("../config/connection.js");
 
 module.exports = function (app) {
   // Get all users
@@ -21,7 +19,6 @@ module.exports = function (app) {
       res.json(dbUser);
     });
   });
-
 
   // Get pet owners users
   app.get("/api/users", function (req, res) {

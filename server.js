@@ -40,7 +40,7 @@ router.get("/", function (req, res) {
 router.post("/register", login.register);
 router.post("/login", login.login);
 app.use("/api", router);
-app.listen(5000);
+// app.listen(5000);
 
 // Handlebars
 app.engine(
@@ -62,7 +62,7 @@ var syncOptions = {
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
+if (process.env.NODE_ENV === "development") {
   syncOptions.force = true;
 }
 

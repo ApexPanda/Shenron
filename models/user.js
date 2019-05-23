@@ -1,7 +1,21 @@
+/* eslint-disable camelcase */
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+    first_name: DataTypes.STRING,
+    last_name: DataTypes.STRING,
+    service_provider: DataTypes.BOOLEAN,
+    pet_owner: DataTypes.BOOLEAN,
+    role: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    createdAt: {
+      field: "created",
+      type: DataTypes.DATE,
+    }, 
+    updatedAt: {
+      field: "modified",
+      type: DataTypes.DATE,
+    }
   });
   return User;
 };

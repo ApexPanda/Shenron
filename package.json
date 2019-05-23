@@ -17,12 +17,9 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "mysql2": "^1.6.4",
-<<<<<<< HEAD
-    "sequelize": "^4.44.0"
-=======
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
     "sequelize": "^5.8.6"
->>>>>>> 0b2dfda6c9e1250a3434117bde69f8c860247b5f
   },
   "devDependencies": {
     "chai": "^4.1.2",

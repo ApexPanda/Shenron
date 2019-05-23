@@ -18,7 +18,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 var router = express.Router();
 
 // test route
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
   res.json({
     message: "Welcome to our upload module apis"
   });
@@ -40,7 +40,7 @@ router.get("/", function(req, res) {
 router.post("/register", login.register);
 router.post("/login", login.login);
 app.use("/api", router);
-app.listen(5000);
+// app.listen(5000);
 
 // Handlebars
 app.engine(
@@ -52,7 +52,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/api-User-Routes")(app);
+// require("./routes/api-Pet-Routes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {
@@ -61,7 +62,7 @@ var syncOptions = {
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
+if (process.env.NODE_ENV === "development") {
   syncOptions.force = true;
 }
 

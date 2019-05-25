@@ -51,6 +51,33 @@ module.exports = function (app) {
       })
       .catch(err => console.log(err)));
 
+  app.get("/test2", (req, res) =>
+    db.User.findAll({
+      where: {
+        role: "Groomer"
+      }
+    })
+      .then(users => {
+        res.render("test", {
+          users
+        });
+      })
+      .catch(err => console.log(err)));
+
+  app.get("/test3", (req, res) =>
+    db.User.findAll({
+      where: {
+        id: 2
+      }
+    })
+      .then(users => {
+        res.render("test", {
+          users
+        });
+      })
+      .catch(err => console.log(err)));
+
+
   app.get("/results", function (req, res) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {

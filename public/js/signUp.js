@@ -84,9 +84,7 @@ $(document).ready(function () {
             }).then(
                 function () {
                     console.log("created new user");
-                    $.ajax("/userProfile", {
-                        type: get
-                    });
+                    function (event) { return true };
                 }
             );
 

@@ -7,6 +7,10 @@
   </div>
   <div class="content-padding">
 
+    {{#each users}}
+    <h1>{{this.first_name}}</h1>
+    {{/each}}
+
     {{!-- profile image and stats --}}
     <div class="row">
       <div class="col s4">

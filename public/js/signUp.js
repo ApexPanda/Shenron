@@ -62,6 +62,28 @@ $(document).ready(function () {
             console.log("email: " + email);
             console.log("password: " + password);
 
+            var newUser = {
+                first_name: firstName,
+                last_name: lastName,
+                service_provider: serviceProvider,
+                pet_owner: petOwner,
+                role: jobTitle,
+                email: email,
+                password: password
+            };
+
+            console.log(newUser);
+
+            $.ajax("/api/users", {
+                type: "POST",
+                data: newUser
+            }).then(
+                function () {
+                    console.log("created new user");
+                    location.reload();
+                }
+            );
+
         }
     });
 });

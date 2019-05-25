@@ -7,7 +7,7 @@ module.exports = function (app) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Fur Butlr",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "index"
     };
@@ -20,7 +20,7 @@ module.exports = function (app) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Sign Up for Fur Butlr",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "sign-up"
     };
@@ -33,7 +33,7 @@ module.exports = function (app) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Your Profile",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "user-profile"
     };
@@ -46,7 +46,7 @@ module.exports = function (app) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Matches for you!",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "results"
     };

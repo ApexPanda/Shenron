@@ -51,10 +51,10 @@ module.exports = function (app) {
       })
       .catch(err => console.log(err)));
 
-  app.get("/test2", (req, res) =>
+  app.get("/test2", function (req, res) {
     db.User.findAll({
       where: {
-        role: "Groomer"
+        role: "Sitter"
       }
     })
       .then(users => {
@@ -62,20 +62,37 @@ module.exports = function (app) {
           users
         });
       })
-      .catch(err => console.log(err)));
+      .catch(err => console.log(err))
+  });
 
-  app.get("/test3", (req, res) =>
+  app.get("/testprofile", function (req, res) {
     db.User.findAll({
       where: {
         id: 2
       }
     })
       .then(users => {
-        res.render("test", {
+        res.render("testprofile", {
           users
         });
       })
-      .catch(err => console.log(err)));
+      .catch(err => console.log(err))
+  });
+
+  app.get("/testprofile/:id", function (req, res) {
+    console.log(req.params.id);
+    db.User.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(users => {
+        res.render("testprofile", {
+          users
+        });
+      })
+      .catch(err => console.log(err))
+  });
 
 
   app.get("/results", function (req, res) {

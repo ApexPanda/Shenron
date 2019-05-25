@@ -72,3 +72,7 @@ p.main-text {
   padding: 10px;
 }
 
+.test {
+  background-color: pink;
+  font-size: 300%;
+}

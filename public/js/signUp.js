@@ -38,7 +38,7 @@ $(document).ready(function () {
             }
 
         } else {
-            var jobTitle = "None";
+            var jobTitle = "Owner";
         }
         var email = $("#email").val().trim();
         var password = $("#password").val().trim();

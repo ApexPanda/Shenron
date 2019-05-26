@@ -106,7 +106,7 @@ module.exports = function (app) {
       }
     })
       .then(users => {
-        res.render("testResults", {
+        res.render("results", {
           users
         });
       })

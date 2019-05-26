@@ -2,10 +2,10 @@
 module.exports = function (sequelize, DataTypes) {
   var Review = sequelize.define("Review", {
     title: DataTypes.STRING,
-    rating: DataTypes.INTEGAR,
+    rating: DataTypes.INTEGER,
     review: DataTypes.STRING,
-    pet_id: DataTypes.INTEGAR,
-    owner_id: DataTypes.INTEGAR,
+    pet_id: DataTypes.INTEGER,
+    owner_id: DataTypes.INTEGER,
     createdAt: {
       field: "created",
       type: DataTypes.DATE,

@@ -2,9 +2,9 @@
 module.exports = function (sequelize, DataTypes) {
   var Pet = sequelize.define("Pet", {
     pet_name: DataTypes.STRING,
-    owner_id: DataTypes.INTEGAR,
+    owner_id: DataTypes.INTEGER,
     pet_type: DataTypes.STRING,
-    image: DataTypes.VARBINARY,
+    image: DataTypes.STRING,
     about_me: DataTypes.STRING,
     location: DataTypes.STRING,
     createdAt: {

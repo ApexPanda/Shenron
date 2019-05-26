@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
     role: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    image: DataTypes.VARBINARY,
+    image: DataTypes.STRING,
     about_me: DataTypes.STRING,
     location: DataTypes.STRING,
     createdAt: {

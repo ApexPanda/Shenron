@@ -38,46 +38,46 @@ module.exports = function (app) {
   //     })
   //     .catch(err => console.log(err)));
 
-  app.get("/test2", function (req, res) {
-    db.User.findAll({
-      where: {
-        role: "Sitter"
-      }
-    })
-      .then(users => {
-        res.render("test", {
-          users
-        });
-      })
-      .catch(err => console.log(err))
-  });
+  // app.get("/test2", function (req, res) {
+  //   db.User.findAll({
+  //     where: {
+  //       role: "Sitter"
+  //     }
+  //   })
+  //     .then(users => {
+  //       res.render("test", {
+  //         users
+  //       });
+  //     })
+  //     .catch(err => console.log(err))
+  // });
 
   // example of proper url for this query: http://localhost:3000/profiles?id=4
   app.get("/userProfile", function (req, res) {
+    console.log(req.query);
+    console.log(req.query.id);
     res.locals.metaTags = {
-      title: "Your Profile",
+      title: "User Profile",
       description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "user-profile"
     };
-    console.log(req.query)
-    console.log(req.query.id)
     db.User.findAll({
       where: {
         id: req.query.id
       }
     })
-      .then(users => {
-        res.render("userProfile", {
-          users
-        });
+      .then(function (users) {
+        res.render("userProfile", { users: users });
       })
-      .catch(err => console.log(err))
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 
   app.get("/profileResults", function (req, res) {
-    console.log(req.query)
-    console.log(req.query.role)
+    console.log(req.query);
+    console.log(req.query.role);
     res.locals.metaTags = {
       title: "Matches for you!",
       description: "A place where pet owners can find all their needs in one place!",
@@ -89,15 +89,13 @@ module.exports = function (app) {
         role: req.query.role
       }
     })
-      .then(users => {
-        res.render("results", {
-          users
-        });
+      .then(function (users) {
+        res.render("results", { users: users });
       })
-      .catch(err => console.log(err))
+      .catch(function (err) {
+        console.log(err);
+      });
   });
-
-
 
   app.get("/results", function (req, res) {
     // This will load title and description for each page separately=================================

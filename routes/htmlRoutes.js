@@ -29,14 +29,14 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/test", (req, res) =>
-    db.User.findAll({})
-      .then(users => {
-        res.render("test", {
-          users
-        });
-      })
-      .catch(err => console.log(err)));
+  // app.get("/test", (req, res) =>
+  //   db.User.findAll({})
+  //     .then(users => {
+  //       res.render("test", {
+  //         users
+  //       });
+  //     })
+  //     .catch(err => console.log(err)));
 
   app.get("/test2", function (req, res) {
     db.User.findAll({

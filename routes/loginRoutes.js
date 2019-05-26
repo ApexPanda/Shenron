@@ -6,7 +6,7 @@ var exports = module.exports = {};
 // register route
 exports.register = function (req, res) {
   console.log("req", req.body);
-  // shoul add date as current time 
+  // should add date as current time 
   var today = new Date();
   // object for the user 
   var users = {

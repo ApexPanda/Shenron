@@ -27,7 +27,7 @@ body.sign-up {
   overflow-y: auto;
 }
 body.results {
-  background-image: url("../images/site/results.jpeg");
+  /* background-image: url("../images/site/results.jpeg"); */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;

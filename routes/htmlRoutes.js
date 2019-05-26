@@ -29,19 +29,6 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/userProfile", function (req, res) {
-    // This will load title and description for each page separately=================================
-    res.locals.metaTags = {
-      title: "Your Profile",
-      description: "A place where pet owners can find all their needs in one place!",
-      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
-      bg: "user-profile"
-    };
-    res.render("userProfile", {
-      layout: "main"
-    });
-  });
-
   app.get("/test", (req, res) =>
     db.User.findAll({})
       .then(users => {
@@ -65,23 +52,14 @@ module.exports = function (app) {
       .catch(err => console.log(err))
   });
 
-  app.get("/testprofile", function (req, res) {
-    db.User.findAll({
-      where: {
-        id: 2
-      }
-    })
-      .then(users => {
-        res.render("testprofile", {
-          users
-        });
-      })
-      .catch(err => console.log(err))
-  });
-
-
   // example of proper url for this query: http://localhost:3000/profiles?id=4
-  app.get("/profiles", function (req, res) {
+  app.get("/userProfile", function (req, res) {
+    res.locals.metaTags = {
+      title: "Your Profile",
+      description: "A place where pet owners can find all their needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "user-profile"
+    };
     console.log(req.query)
     console.log(req.query.id)
     db.User.findAll({
@@ -97,9 +75,15 @@ module.exports = function (app) {
       .catch(err => console.log(err))
   });
 
-  app.get("/serviceProviders", function (req, res) {
+  app.get("/profileResults", function (req, res) {
     console.log(req.query)
     console.log(req.query.role)
+    res.locals.metaTags = {
+      title: "Matches for you!",
+      description: "A place where pet owners can find all their needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "results"
+    };
     db.User.findAll({
       where: {
         role: req.query.role

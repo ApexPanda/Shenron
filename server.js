@@ -53,7 +53,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/api-User-Routes")(app);
-// require("./routes/api-Pet-Routes")(app);
+require("./routes/api-Pet-Routes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {

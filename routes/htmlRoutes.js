@@ -79,20 +79,40 @@ module.exports = function (app) {
       .catch(err => console.log(err))
   });
 
-  app.get("/testprofile/:id", function (req, res) {
-    console.log(req.params.id);
+
+  // example of proper url for this query: http://localhost:3000/profiles?id=4
+  app.get("/profiles", function (req, res) {
+    console.log(req.query)
+    console.log(req.query.id)
     db.User.findAll({
       where: {
-        id: req.params.id
+        id: req.query.id
       }
     })
       .then(users => {
-        res.render("testprofile", {
+        res.render("userProfile", {
           users
         });
       })
       .catch(err => console.log(err))
   });
+
+  app.get("/serviceProviders", function (req, res) {
+    console.log(req.query)
+    console.log(req.query.role)
+    db.User.findAll({
+      where: {
+        role: req.query.role
+      }
+    })
+      .then(users => {
+        res.render("testResults", {
+          users
+        });
+      })
+      .catch(err => console.log(err))
+  });
+
 
 
   app.get("/results", function (req, res) {

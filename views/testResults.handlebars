@@ -1,0 +1,33 @@
+{{> navBar}}
+
+<h1 class="profile-heading white-text center">Pet {{users.1.role}}s</h1>
+
+<div class="container">
+
+    {{#each users}}
+
+    <div class="col s12 m9">
+        <h2 class="header white-text">{{first_name}} {{last_name}}</h2>
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="https://lorempixel.com/200/290/nature/6">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>What I Do: Pet {{role}}</p>
+                    <p>Where am I: Salt Lake City</p>
+                    <p>Average Rating: ****</p>
+                </div>
+                <div class="card-action">
+                    <a href="./profiles?id={{id}}">More Info</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{/each}}
+</div>
+
+
+<script src="./js/results.js"></script>

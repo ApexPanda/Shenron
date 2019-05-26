@@ -34,6 +34,17 @@ CREATE TABLE `pets` (
  FOREIGN KEY(owner_id) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE reviews (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `rating` int(11) NOT NULL,
+  `review` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+   PRIMARY KEY (`id`),
+   foreign key (`pet_id`) references pets(id),
+   foreign key (`owner_id`) references users(id)
+)
 
 USE fur_db;
 DROP TABLE IF EXISTS examples;

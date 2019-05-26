@@ -17,6 +17,9 @@ exports.register = function (req, res) {
     "role": req.body.role,
     "email": req.body.email,
     "password": req.body.password,
+    "image": req.body.image,
+    "about_me": req.body.about_me,
+    "location": req.body.location,
     "created": today,
     "modified": today
   };

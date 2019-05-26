@@ -12,9 +12,9 @@ CREATE TABLE `users` (
  `role` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
- `image` varbinary(max),
- `about_me` varchar(300) utf8_unicode_ci NOT NULL,
- `location` varchar(30) utf8_unicode_ci NOT NULL,
+ `image` varbinary(200),
+ `about_me` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+ `location` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`)

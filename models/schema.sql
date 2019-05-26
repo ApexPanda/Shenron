@@ -41,10 +41,12 @@ CREATE TABLE reviews (
   `review` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `pet_id` int(11) NOT NULL,
   `owner_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
    PRIMARY KEY (`id`),
    foreign key (`pet_id`) references pets(id),
    foreign key (`owner_id`) references users(id)
-)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 USE fur_db;
 DROP TABLE IF EXISTS examples;

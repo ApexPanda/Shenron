@@ -12,7 +12,7 @@ $(document).ready(function () {
     });
 
     $("#register-btn").on("click", function () {
-
+        event.preventDefault();
         var firstName = $("#first-name").val().trim();
         var lastName = $("#last-name").val().trim();
         if ($("#pet-owner:checked").val() === "on") {
@@ -38,7 +38,7 @@ $(document).ready(function () {
             }
 
         } else {
-            var jobTitle = "None";
+            var jobTitle = "Owner";
         }
         var email = $("#email").val().trim();
         var password = $("#password").val().trim();
@@ -61,6 +61,33 @@ $(document).ready(function () {
             console.log("jobTitle: " + jobTitle);
             console.log("email: " + email);
             console.log("password: " + password);
+
+            var newUser = {
+                // eslint-disable-next-line camelcase
+                first_name: firstName,
+                // eslint-disable-next-line camelcase
+                last_name: lastName,
+                // eslint-disable-next-line camelcase
+                service_provider: serviceProvider,
+                // eslint-disable-next-line camelcase
+                pet_owner: petOwner,
+                role: jobTitle,
+                email: email,
+                password: password
+            };
+
+            console.log(newUser);
+
+            $.ajax("/api/users", {
+                type: "POST",
+                data: newUser
+            }).then(
+                function () {
+                    console.log("created new user");
+                    // function (event) { return true };
+                    location.reload();
+                }
+            );
 
         }
     });

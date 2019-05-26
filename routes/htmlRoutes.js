@@ -7,7 +7,7 @@ module.exports = function (app) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Fur Butlr",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "index"
     };
@@ -20,7 +20,7 @@ module.exports = function (app) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Sign Up for Fur Butlr",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "sign-up"
     };
@@ -29,24 +29,79 @@ module.exports = function (app) {
     });
   });
 
+  // app.get("/test", (req, res) =>
+  //   db.User.findAll({})
+  //     .then(users => {
+  //       res.render("test", {
+  //         users
+  //       });
+  //     })
+  //     .catch(err => console.log(err)));
+
+  // app.get("/test2", function (req, res) {
+  //   db.User.findAll({
+  //     where: {
+  //       role: "Sitter"
+  //     }
+  //   })
+  //     .then(users => {
+  //       res.render("test", {
+  //         users
+  //       });
+  //     })
+  //     .catch(err => console.log(err))
+  // });
+
+  // example of proper url for this query: http://localhost:3000/profiles?id=4
   app.get("/userProfile", function (req, res) {
-    // This will load title and description for each page separately=================================
+    console.log(req.query);
+    console.log(req.query.id);
     res.locals.metaTags = {
-      title: "Your Profile",
-      description: "A place where pet owners can find all thier needs in one place!",
+      title: "User Profile",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "user-profile"
     };
-    res.render("userProfile", {
-      layout: "main"
-    });
+    db.User.findAll({
+      where: {
+        id: req.query.id
+      }
+    })
+      .then(function (users) {
+        res.render("userProfile", { users: users });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
+
+  app.get("/profileResults", function (req, res) {
+    console.log(req.query);
+    console.log(req.query.role);
+    res.locals.metaTags = {
+      title: "Matches for you!",
+      description: "A place where pet owners can find all their needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "results"
+    };
+    db.User.findAll({
+      where: {
+        role: req.query.role
+      }
+    })
+      .then(function (users) {
+        res.render("results", { users: users });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 
   app.get("/results", function (req, res) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Matches for you!",
-      description: "A place where pet owners can find all thier needs in one place!",
+      description: "A place where pet owners can find all their needs in one place!",
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "results"
     };

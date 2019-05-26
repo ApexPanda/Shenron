@@ -1,0 +1,24 @@
+{{> navBar}}
+
+<div class="container">
+
+    <h1>this is a test page</h1>
+
+    {{#each users}}
+
+    <div>
+        <h4>{{first_name}} {{last_name}}</h4>
+        {{#if service_provider}}
+        <p>Pet {{role}}</p>
+        {{else}}
+        <p>Pet Owner</p>
+        {{/if}}
+        <p>{{email}}</p>
+        <p class="test">{{password}}</p>
+    </div>
+    <br>
+
+    {{else}}
+    <p>No Users Available</p>
+    {{/each}}
+</div>

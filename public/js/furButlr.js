@@ -21,10 +21,11 @@ $(document).ready(function () {
     //   console.log("ajax data: ", data);
     //   res.json(data);
     // });
+    // location.reload();
     console.log("login button clicked");
   });
 
-  
+
 });
 
 

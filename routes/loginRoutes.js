@@ -49,37 +49,8 @@ exports.login = function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
   console.log("login details: " + email + ", " + password);
+  
   // query to find that user
-
-  // router.get("/api/users", function (req, res) {
-  // db.User.findAll({
-  //   attributes: ["email", "password"],
-  //   where: {
-  //     email: email
-  //   }
-  // })
-  //   .then(function (error, results, fields) {
-  //     if (error) {
-  //       console.log("Error Ocurred: ", error);
-  //       res.send({
-  //         "code": 400,
-  //         "failed": "Login error ocurred"
-  //       });
-  //     } else {
-  //       console.log("The solution is: ", results);
-  //       // checks if password entered is equal to the password in the db
-  //       if (results.password === password) {
-  //         // 200 if successful
-  //         res.send({
-  //           "code": 200,
-  //           "success": "Login Successful"
-  //         });
-  //       }
-  //     }
-  //     console.log("fields: " + fields);
-  //   });
-
-
   connection.query("SELECT * FROM users WHERE email = ?", [email],
     function (error, results, fields) {
       // 400 if failed

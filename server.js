@@ -7,8 +7,9 @@ var session = require("express-session");
 
 var PORT = process.env.PORT || 3000;
 var db = require("./models");
+var loginRouter = require("./routes/userLoginRoutes");
 
-var login = require("./routes/loginRoutes");
+// var login = require("./routes/loginRoutes");
 
 // Middleware
 app.use(helmet());
@@ -31,11 +32,21 @@ app.use(function (req, res, next) {
 app.use(session({
   secret: "session secret",
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 }));
 
+app.use("/", loginRouter);
+
+// Handlebars
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
+);
+app.set("view engine", "handlebars");
+
 // var router = express.Router();
-var userLoginRouter = require("./routes/userLoginRoutes");
 
 // test route
 // router.get("/", function (req, res) {
@@ -50,16 +61,6 @@ var userLoginRouter = require("./routes/userLoginRoutes");
 // app.use("/api", router);
 // app.listen(5000);
 
-app.use("/api/login", userLoginRouter);
-
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/api-User-Routes")(app);

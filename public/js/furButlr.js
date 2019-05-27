@@ -6,7 +6,7 @@ $(document).ready(function () {
   // Modal ================================================
   $(".modal").modal();
 
-  // Login event listener =================================
+  // Login event listener and ajax post =================================
   $(document).on("click", "#login-submit", function (event) {
     event.preventDefault();
     $.ajax({
@@ -16,14 +16,15 @@ $(document).ready(function () {
         email: $("#login-email").val().trim(),
         password: $("#pass").val().trim()
       }
-    })
-      .then(function (data) {
-        console.log("ajax data: " + data);
-        res.json(data);
-      });
+    });
+    // .then(function (data) {
+    //   console.log("ajax data: ", data);
+    //   res.json(data);
+    // });
     console.log("login button clicked");
   });
 
+  
 });
 
 

@@ -11,14 +11,17 @@ $(document).ready(function () {
     event.preventDefault();
     $.ajax({
       url: "/api/login",
-      method: "GET",
+      method: "POST",
       data: {
         email: $("#login-email").val().trim(),
         password: $("#pass").val().trim()
       }
-    });
-    console.log("");
-    location.reload();
+    })
+      .then(function (data) {
+        console.log("ajax data: " + data);
+        res.json(data);
+      });
+    console.log("login button clicked");
   });
 
 });

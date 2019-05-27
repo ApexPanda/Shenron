@@ -1,21 +1,22 @@
 require("dotenv").config();
 var express = require("express");
+var app = express();
+var helmet = require("helmet");
 var exphbs = require("express-handlebars");
-var bodyParser = require("body-parser");
-var login = require("./routes/loginRoutes");
+var session = require("express-session");
 
+var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+var login = require("./routes/loginRoutes");
 
 // Middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
+app.use(helmet());
+app.use(express.urlencoded({
+  extended: true
+})
 );
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static("public"));
 
 app.use(function (req, res, next) {
@@ -27,20 +28,29 @@ app.use(function (req, res, next) {
   next();
 });
 
-var router = express.Router();
+app.use(session({
+  secret: "session secret",
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// var router = express.Router();
+var userLoginRouter = require("./routes/userLoginRoutes");
 
 // test route
-router.get("/", function (req, res) {
-  res.json({
-    message: "Welcome to our upload module apis"
-  });
-});
+// router.get("/", function (req, res) {
+//   res.json({
+//     message: "Welcome to our upload module apis"
+//   });
+// });
 
 // route to handle user registration
-router.post("/register", login.register);
-router.post("/login", login.login);
-app.use("/api", router);
+// router.post("/register", login.register);
+// router.post("/login", login.login);
+// app.use("/api", router);
 // app.listen(5000);
+
+app.use("/api/login", userLoginRouter);
 
 // Handlebars
 app.engine(

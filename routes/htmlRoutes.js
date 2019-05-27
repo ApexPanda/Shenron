@@ -69,9 +69,9 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/signup", function (req, res) {
-    res.render("signUp", {});
-  });
+  // app.get("/signup", function (req, res) {
+  //   res.render("signUp", {});
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

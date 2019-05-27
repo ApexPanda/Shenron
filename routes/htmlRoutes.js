@@ -56,24 +56,69 @@ module.exports = function (app) {
   app.get("/userProfile", function (req, res) {
     console.log(req.query);
     console.log(req.query.id);
-    res.locals.metaTags = {
-      title: "User Profile",
-      description: "A place where pet owners can find all their needs in one place!",
-      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
-      bg: "user-profile"
-    };
-    db.User.findAll({
+    var users = db.User.findAll({
       where: {
         id: req.query.id
       }
-    })
-      .then(function (users) {
-        res.render("userProfile", { users: users });
+    });
+
+    var pets = db.Pet.findAll({
+      where: {
+        // eslint-disable-next-line camelcase
+        owner_id: req.query.id
+      }
+    });
+
+    var reviews = db.Review.findAll({
+      where: {
+        // eslint-disable-next-line camelcase
+        owner_id: req.query.id
+      }
+    });
+
+    Promise
+      .all([users, pets, reviews])
+      .then(function (responses) {
+        console.log("**********COMPLETE RESULTS****************");
+        console.log(responses[0]); // user profile
+        console.log(responses[1]); // all reports
+        console.log(responses[2]); // report details
+        res.render("userProfile", {
+          users: responses[0],
+          pets: responses[1],
+          reviews: responses[2],
+        });
+
       })
       .catch(function (err) {
+        console.log("**********ERROR RESULT****************");
         console.log(err);
       });
+
+
   });
+
+  // app.get("/userProfile", function (req, res) {
+  //   console.log(req.query);
+  //   console.log(req.query.id);
+  //   res.locals.metaTags = {
+  //     title: "User Profile",
+  //     description: "A place where pet owners can find all their needs in one place!",
+  //     keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+  //     bg: "user-profile"
+  //   };
+  //   db.User.findAll({
+  //     where: {
+  //       id: req.query.id
+  //     }
+  //   })
+  //     .then(function (users) {
+  //       res.render("userProfile", { users: users });
+  //     })
+  //     .catch(function (err) {
+  //       console.log(err);
+  //     });
+  // });
 
   app.get("/profileResults", function (req, res) {
     console.log(req.query);

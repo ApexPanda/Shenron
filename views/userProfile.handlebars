@@ -14,9 +14,9 @@
       <div class="col s4">
         <div class="card">
           <div class="card-image">
-            <img src="./images/site/results.jpeg">
+            <img src="{{#if image}}{{image}}{{else}}./images/site/default-profile-2.jpg{{/if}}">
           </div>
-          <div class="card-content">
+          <div class=" card-content">
             <span class="card-title">{{first_name}} {{last_name}}</span>
             <p>Pet {{role}}</p>
             <p>{{location}}</p>
@@ -43,7 +43,8 @@
 
         <div class="card horizontal">
           <div class="card-image">
-            <img src="https://lorempixel.com/100/190/nature/6">
+            <img class="profile-pet-image"
+              src="{{#if image}}{{image}}{{else}}./images/site/default-profile-1.jpg{{/if}}">
           </div>
           <div class="card-stacked">
             <div class="card-content">
@@ -53,9 +54,7 @@
               <p>{{location}}</p>
               <p>{{about_me}}</p>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
+
           </div>
         </div>
 

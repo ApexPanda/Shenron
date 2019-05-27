@@ -73,6 +73,17 @@ p.main-text {
   padding: 10px;
 }
 
+
+.result-profile-image {
+  width: 200px;
+  height: 200px;
+}
+
+.profile-pet-image {
+  width: 200px;
+  height: 200px;
+}
+
 .test {
   background-color: pink;
   font-size: 300%;

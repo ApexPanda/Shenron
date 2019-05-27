@@ -1,9 +1,9 @@
 {{> navBar}}
 
-{{#if users.1.service_provider}}
-<h1 class="profile-heading white-text center">Pet {{users.1.role}}s</h1>
+{{#if users.0.service_provider}}
+<h1 class="profile-heading white-text center">Pet {{users.0.role}}s</h1>
 {{/if}}
-{{#if users.1.pet_owner}}
+{{#if users.0.pet_owner}}
 <h1 class="profile-heading white-text center">Pet Owners</h1>
 {{/if}}
 <div class="container">
@@ -14,7 +14,8 @@
         <h2 class="header white-text">{{first_name}} {{last_name}}</h2>
         <div class="card horizontal">
             <div class="card-image">
-                <img src="./images/site/rrrdachshund_blue_shop_thumb.png">
+                <img class="result-profile-image"
+                    src="{{#if image}}{{image}}{{else}}./images/site/default-profile-2.jpg{{/if}}">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
@@ -30,7 +31,7 @@
     </div>
 
     {{else}}
-    <p>No Providers match your criteria</p>
+    <h2 class="profile-heading white-text center">No Results match your criteria</h2>
     {{/each}}
 </div>
 

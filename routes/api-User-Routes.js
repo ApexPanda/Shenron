@@ -52,7 +52,7 @@ module.exports = function (app) {
   app.post("/api/users", function (req, res) {
     // console.log(req.body);
     bcrypt.hash(plainTextPassword1, saltRounds)
-    .then(hash => {
+    .then(function(hash) {
       console.log(`Hash: ${hash}`);
       console.log(req.body.password);
     })

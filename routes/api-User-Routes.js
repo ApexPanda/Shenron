@@ -55,7 +55,7 @@ module.exports = function (app) {
       .then(function(hash) {
         console.log("Hash:" + hash);
         console.log(req.body.password);
-      })
+      });
     db.User.create(req.body).then(function (dbUser) {
       res.json(dbUser);
       // console.log(dbUser);

@@ -50,14 +50,15 @@ module.exports = function (app) {
 
   // Create a new user
   app.post("/api/users", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     bcrypt.hash(plainTextPassword1, saltRounds)
     .then(hash => {
       console.log(`Hash: ${hash}`);
+      console.log(req.body.password);
     })
     db.User.create(req.body).then(function (dbUser) {
       res.json(dbUser);
-      console.log(dbUser);
+      // console.log(dbUser);
     });
   });
 

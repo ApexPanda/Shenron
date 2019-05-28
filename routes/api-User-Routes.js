@@ -52,10 +52,10 @@ module.exports = function (app) {
   app.post("/api/users", function (req, res) {
     // console.log(req.body);
     bcrypt.hash(plainTextPassword1, saltRounds)
-    .then(function(hash) {
-      console.log(`Hash: ${hash}`);
-      console.log(req.body.password);
-    })
+      .then(function(hash) {
+        console.log("Hash:" + hash);
+        console.log(req.body.password);
+      })
     db.User.create(req.body).then(function (dbUser) {
       res.json(dbUser);
       // console.log(dbUser);

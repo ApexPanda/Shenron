@@ -1,38 +1,49 @@
-# Project Starter
+## Description: 
+We have created an application to find a service provider for your pet.
 
-In this activity we will add the provided boilerplate to group project repos.
+## Features:
+Create an account/login to your own account 
+Create your own profile 
+Add pets to your profile 
+Find a service provider based on the service they offer 
+Go to their profile 
+See their reviews or their pets
 
-## Instructions
+## Requirements:
 
-* Only one member of each group should complete this activity while the others watch.
+Your project must:
 
-* Copy the entire [Unsolved](Unsolved) folder to another location on your computers &mdash; wherever you would like your local copy of the group project to be.
+Use a Node and Express Web Server;
 
-* Rename the copied "Unsolved" folder to the name of your project.
+Be backed by a MySQL Database an ORM (not necessarily Sequelize);
 
-* Open the copied project folder's `package.json` file and change its `name` property to the name of your project.
+Have both GET and POST routes for retrieving and adding new data;
 
-* CD to the root of the copied project folder with your terminal and run the following commands:
+Be deployed using Heroku (with Data);
 
-  ```
-  git init
-  git add .
-  git commit -m "Initial commit"
-  ```
+Utilize at least one new library, package, or technology that we haven’t discussed;
 
-* Then copy the GitHub repo's remote SSH URL (the same URL you'd use to clone the repo).
+Have a polished frontend / UI;
 
-* Run the following commands in your terminal, replacing <remote-url> with your GitHub repo's remote SSH URL.
+Have folder structure that meets MVC Paradigm;
 
-  ```
-  git remote add origin <remote-url>
-  git push origin master
-  ```
+Meet good quality coding standards (indentation, scoping, naming).
 
-* If completed successfully you should see all of the files uploaded to GitHub.
+Must not expose sensitive API key information on the server, see Protecting-API-Keys-In-Node.md
 
-* All other group members should now clone the repo.
 
-* Discuss as a group:
+*Kayla Tryon*
+Github username: ApexPanda
+Contributions: Encrypted the passwords when stored into the database, created the users table and seeds, added service providers/pet owners to the table later on, and created our custom API. 
 
-  * How would you now add changes to this project?
+*Dominic Ojeda*
+Github username: 
+Contributions: Designed the "Create an Account" page and connected it to the backend, designed and created the users profile pages and connected the pets and reviews on the profiles to the backend, designed the color scheme and background for the site.
+
+*Greg Olson*
+Github username: mountainflow
+Contributions: Designed the logo, connected the "Login" with the backend, added the favicon for tabs, created the login modal, designed and created the services output page, and designed and created the home page. 
+
+*Emily Robinson*
+Github username: emssslay
+Contributions: Setup login routes, API routes, pet routes and table, review routes and table, user routes and added to table. Also setup the models for each and validated the API was getting data from the database. 

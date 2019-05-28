@@ -34,10 +34,10 @@ Must not expose sensitive API key information on the server, see Protecting-API-
 
 *Kayla Tryon*
 Github username: ApexPanda
-Contributions: Encrypted the passwords when stored into the database, created the users table and seeds, added service providers/pet owners to the table later on, and created our custom API. 
+Contributions: Encrypted the passwords when stored into the database, created the users table and seeds, added service providers/pet owners to the table later on, and created our custom API for retrieving information from the backend. 
 
 *Dominic Ojeda*
-Github username: 
+Github username: dojeda1
 Contributions: Designed the "Create an Account" page and connected it to the backend, designed and created the users profile pages and connected the pets and reviews on the profiles to the backend, designed the color scheme and background for the site.
 
 *Greg Olson*

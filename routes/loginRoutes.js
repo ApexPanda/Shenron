@@ -48,11 +48,11 @@ exports.login = function (req, res) {
   // stores email and password to login
   var email = req.body.email;
   var password = req.body.password;
-  console.log("login details: " + email + ", " + password);
+  console.log("\n\nlogin details: " + email + ", " + password);
   
   // query to find that user
   connection.query("SELECT * FROM users WHERE email = ?", [email],
-    function (error, results, fields) {
+    function (error, results) {
       // 400 if failed
       if (error) {
         console.log("Error ocurred", error);
@@ -72,7 +72,6 @@ exports.login = function (req, res) {
           });
         }
       }
-      console.log("fields: " + fields);
 
     });
 

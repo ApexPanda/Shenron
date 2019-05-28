@@ -35,7 +35,7 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-app.use("/", loginRouter);
+app.use("/", loginRouter); // =========================== wont work if url is "/api/login"
 
 // Handlebars
 app.engine(

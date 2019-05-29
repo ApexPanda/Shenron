@@ -8,7 +8,7 @@ var db = require("../models");
 // register route
 exports.register = function (req, res) {
   console.log("req", req.body);
-  // shoul add date as current time 
+  // should add date as current time 
   var today = new Date();
   // object for the user 
   var users = {
@@ -19,6 +19,9 @@ exports.register = function (req, res) {
     "role": req.body.role,
     "email": req.body.email,
     "password": req.body.password,
+    "image": req.body.image,
+    "about_me": req.body.about_me,
+    "location": req.body.location,
     "created": today,
     "modified": today
   };

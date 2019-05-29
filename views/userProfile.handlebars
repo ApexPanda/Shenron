@@ -7,6 +7,8 @@
   </div>
   <div class="content-padding">
 
+    {{#each users}}
+
     {{!-- profile image and stats --}}
     <div class="row">
       <div class="col s4">
@@ -15,8 +17,8 @@
             <img src="./images/site/results.jpeg">
           </div>
           <div class="card-content">
-            <span class="card-title">John Smith</span>
-            <p>Pet Owner</p>
+            <span class="card-title">{{first_name}} {{last_name}}</span>
+            <p>Pet {{role}}</p>
             <p>Draper, UT</p>
             <p>Rating: <span>4.5/5</span></p>
           </div>
@@ -27,8 +29,10 @@
       </div>
       <div class="col s8 white">
         <h4>About Me</h4>
-        <p>Hello! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus doloribus cumque iusto veritatis
-          magni minus deserunt facilis placeat, saepe libero tenetur quia animi maiores assumenda neque necessitatibus
+        <p>Hello! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus doloribus cumque iusto
+          veritatis
+          magni minus deserunt facilis placeat, saepe libero tenetur quia animi maiores assumenda neque
+          necessitatibus
           voluptatem amet. Asperiores.</p>
       </div>
     </div>
@@ -113,7 +117,7 @@
 
       </div>
     </div>
-
+    {{/each}}
   </div>
 </div>
 

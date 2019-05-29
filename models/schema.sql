@@ -12,9 +12,40 @@ CREATE TABLE `users` (
  `role` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `image` varbinary(200),
+ `about_me` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+ `location` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `pets` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `pet_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+ `owner_id` int(11) NOT NULL,
+ `pet_type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+ `image` varbinary(200),
+ `about_me` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+ `location` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+ `created` datetime NOT NULL,
+ `modified` datetime NOT NULL,
+ PRIMARY KEY (`id`),
+ FOREIGN KEY(owner_id) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE reviews (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `rating` int(11) NOT NULL,
+  `review` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `pet_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+   PRIMARY KEY (`id`),
+   foreign key (`pet_id`) references pets(id),
+   foreign key (`owner_id`) references users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 USE fur_db;

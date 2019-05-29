@@ -8,10 +8,13 @@ module.exports = function (sequelize, DataTypes) {
     role: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
+    image: DataTypes.STRING,
+    about_me: DataTypes.STRING,
+    location: DataTypes.STRING,
     createdAt: {
       field: "created",
       type: DataTypes.DATE,
-    }, 
+    },
     updatedAt: {
       field: "modified",
       type: DataTypes.DATE,

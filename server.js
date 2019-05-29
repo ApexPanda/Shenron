@@ -66,9 +66,16 @@ app.use("/", loginRouter);
 // app.use("/api", router); //=======================================
 
 // Routes
+<<<<<<< HEAD
 require("./routes/api-User-Routes")(app); // ================================
 // require("./routes/api-Pet-Routes")(app);
 // require("./routes/htmlRoutes")(app); //===================================
+=======
+require("./routes/api-User-Routes")(app);
+require("./routes/api-Pet-Routes")(app);
+require("./routes/api-Review-Routes")(app);
+require("./routes/htmlRoutes")(app);
+>>>>>>> f3ed998da0af91b822edf7e207c91c3837335003
 
 var syncOptions = {
   force: false

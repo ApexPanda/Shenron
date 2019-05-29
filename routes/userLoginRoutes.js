@@ -11,6 +11,7 @@ router.post("/api/login", function (req, res) {
 
   if (!email || !password) {
     console.log("No email/Pass");
+    res.end();
   } else {
     db.User.findAll({
       where: {
@@ -18,12 +19,11 @@ router.post("/api/login", function (req, res) {
       }
       // Somewhere in here is where we need to perform encryption =========================
     }).then(function (dbUser) {
-      if (dbUser === true && dbUser[0].password === password) {
+      if (dbUser && dbUser[0].password === password) {
         console.log("dbUserPassword :", dbUser[0].password);
         console.log("PASSWORD MATCHES");
-        // req.session("userId", dbUser[0].id); // "req.session is not a function" ===============
-
-        // Need to change out login button to user name/image with dropdown for logout, go to profile page, etc.
+        req.session.userId = dbUser[0].id;
+        console.log("SESSION: ", req.session);
         res.send({
           "code": 200,
           "success": "Login Successful"
@@ -36,6 +36,18 @@ router.post("/api/login", function (req, res) {
     });
   }
 
+});
+
+// Logout route
+router.post("/api/logout", function (req, res) {
+  req.session.destroy(function (err) {
+    if (err) {
+      return res.redirect("/dashboard");
+    }
+    res.clearCookie("connect.sid");
+    res.redirect("/");
+  });
+  console.log("LOGGED OUT");
 });
 
 module.exports = router;

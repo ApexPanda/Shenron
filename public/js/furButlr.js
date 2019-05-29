@@ -23,8 +23,17 @@ $(document).ready(function () {
         }
       });
     }
-    location.reload();
+    window.location.assign("./dashboard");
     console.log("login button clicked");
   });
+
+  // $(document).on("click", "#logout-submit", function (event) {
+  //   event.preventDefault();
+  //   $.ajax({
+  //     url: "/api/logout",
+  //     method: "POST",
+  //   });
+  //   console.log("logout button clicked");
+  // });
 
 });

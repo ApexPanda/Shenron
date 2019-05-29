@@ -6,10 +6,12 @@ var exphbs = require("express-handlebars");
 var session = require("express-session");
 
 var PORT = process.env.PORT || 3000;
-var db = require("./models");
-var loginRouter = require("./routes/userLoginRoutes");
 
-// var login = require("./routes/loginRoutes");
+var db = require("./models");
+
+// Login Routes
+var loginRouter = require("./routes/userLoginRoutes");
+var login = require("./routes/loginRoutes");
 
 // Middleware
 app.use(helmet());
@@ -29,13 +31,22 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Sessions ===============================================
+// Sets cookies to secure https when in production, 
+// but not in development
+var secureCookie = false;
+if (process.env.NODE_ENV === "production") {
+  secureCookie = true;
+}
 app.use(session({
-  secret: "session secret",
+  secret: "jnI67r12gfJH79Greb0EmnObvesk5J98HgfG",
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    sameSite: true,
+    secure: secureCookie
+  }
 }));
-
-app.use("/", loginRouter); // =========================== wont work if url is "/api/login"
 
 // Handlebars
 app.engine(
@@ -46,21 +57,12 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// var router = express.Router();
-
-// test route
-// router.get("/", function (req, res) {
-//   res.json({
-//     message: "Welcome to our upload module apis"
-//   });
-// });
-
 // route to handle user registration
-// router.post("/register", login.register);
-// router.post("/login", login.login);
-// app.use("/api", router);
-// app.listen(5000);
-
+app.use("/", loginRouter);
+var router = express.Router();
+router.post("/register", login.register);
+router.post("/login", login.login);
+app.use("/api", router);
 
 // Routes
 require("./routes/api-User-Routes")(app);

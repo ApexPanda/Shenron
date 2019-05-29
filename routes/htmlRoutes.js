@@ -4,6 +4,13 @@ module.exports = function (app) {
   // Load index page
 
   app.get("/", function (req, res) {
+    console.log(req.session);
+    var userId = req.session.userId;
+if (userId) {
+  
+}
+
+
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Fur Butlr",
@@ -11,7 +18,7 @@ module.exports = function (app) {
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "index"
     };
-    res.render("index", {
+    res.render("index", { 
       layout: "main"
     });
   });
@@ -51,6 +58,20 @@ module.exports = function (app) {
       bg: "results"
     };
     res.render("results", {
+      layout: "main"
+
+    });
+  });
+
+  app.get("/dashboard", function (req, res) {
+    // This will load title and description for each page separately=================================
+    res.locals.metaTags = {
+      title: "Your profile",
+      description: "A place where pet owners can find all their needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "dashboard"
+    };
+    res.render("dashboard", {
       layout: "main"
 
     });

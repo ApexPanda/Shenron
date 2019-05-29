@@ -11,7 +11,7 @@ var db = require("./models");
 
 // Login Routes
 var loginRouter = require("./routes/userLoginRoutes");
-var login = require("./routes/loginRoutes");
+// var login = require("./routes/loginRoutes"); //===============================
 
 // Middleware
 app.use(helmet());
@@ -59,15 +59,15 @@ app.set("view engine", "handlebars");
 
 // route to handle user registration
 app.use("/", loginRouter);
-var router = express.Router();
-router.post("/register", login.register);
-router.post("/login", login.login);
-app.use("/api", router);
+// var router = express.Router(); //=======================================
+// router.post("/register", login.register); //=======================================
+// router.post("/login", login.login); //=======================================
+// app.use("/api", router); //=======================================
 
 // Routes
-require("./routes/api-User-Routes")(app);
+// require("./routes/api-User-Routes")(app); // ================================
 // require("./routes/api-Pet-Routes")(app);
-require("./routes/htmlRoutes")(app);
+// require("./routes/htmlRoutes")(app); //===================================
 
 var syncOptions = {
   force: false

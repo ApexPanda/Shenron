@@ -2,6 +2,101 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+
+//=======================================================================================
+
+var redirectLogin = function (req, res, next) {
+  console.log("REDIRECT SESSION: ", req.session);
+  if (!req.session.userId) {
+    res.redirect("/signUp");
+  } else {
+    next();
+  }
+};
+
+router.get("/", function (req, res) {
+  console.log("\n\nROUTER.GET SESSION: ", req.session);
+  console.log("ROUTER.GET SESSION ID: ", req.session.id);
+  console.log("ROUTER.GET userId: ", req.session.userId); 
+
+  // This will load title and description for each page separately=================================
+  res.locals.metaTags = {
+    title: "Fur Butlr",
+    description: "A place where pet owners can find all their needs in one place!",
+    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+    bg: "index"
+  };
+  res.render("index", {
+    layout: "main"
+  });
+});
+
+router.get("/signUp", function (req, res) {
+  // This will load title and description for each page separately=================================
+  res.locals.metaTags = {
+    title: "Sign Up for Fur Butlr",
+    description: "A place where pet owners can find all their needs in one place!",
+    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+    bg: "sign-up"
+  };
+  res.render("signUp", {
+    layout: "main"
+  });
+});
+
+router.get("/userProfile", function (req, res) {
+  // This will load title and description for each page separately=================================
+  res.locals.metaTags = {
+    title: "Your Profile",
+    description: "A place where pet owners can find all their needs in one place!",
+    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+    bg: "user-profile"
+  };
+  res.render("userProfile", {
+    layout: "main"
+  });
+});
+
+router.get("/results", function (req, res) {
+  // This will load title and description for each page separately=================================
+  res.locals.metaTags = {
+    title: "Matches for you!",
+    description: "A place where pet owners can find all their needs in one place!",
+    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+    bg: "results"
+  };
+  res.render("results", {
+    layout: "main"
+
+  });
+});
+
+router.get("/dashboard", redirectLogin, function (req, res) {
+  console.log("DASHBOARD SESSION: ", req.session);
+  // This will load title and description for each page separately=================================
+  res.locals.metaTags = {
+    title: "Your profile",
+    description: "A place where pet owners can find all their needs in one place!",
+    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+    bg: "dashboard"
+  };
+  res.render("dashboard", {
+    layout: "main"
+
+  });
+});
+
+// Render 404 page for any unmatched routes
+router.get("*", function (req, res) {
+  res.render("404");
+});
+
+
+
+
+
+//========================================================================================
+
 // login route
 router.post("/api/login", function (req, res) {
   var email = req.body.email;
@@ -23,8 +118,8 @@ router.post("/api/login", function (req, res) {
         console.log("dbUserPassword :", dbUser[0].password);
         console.log("PASSWORD MATCHES");
         req.session.userId = dbUser[0].id;
-        console.log("SESSION: ", req.session);
-        res.send({
+        console.log("SESSION Id: ", req.session.userId);
+        res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
           "code": 200,
           "success": "Login Successful"
         });

@@ -1,14 +1,26 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  // Load index page
+
+  var redirectLogin = function (res, req, next) {
+    if (!req.session.userId) {
+      res.redirect("/signUp");
+    } else {
+      next();
+    }
+  };
+
+
+
+
+
 
   app.get("/", function (req, res) {
     console.log(req.session);
-    var userId = req.session.userId;
-if (userId) {
-  
-}
+    // var userId = req.session.userId;
+    // if (userId) {
+
+    // }
 
 
     // This will load title and description for each page separately=================================
@@ -18,7 +30,7 @@ if (userId) {
       keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
       bg: "index"
     };
-    res.render("index", { 
+    res.render("index", {
       layout: "main"
     });
   });
@@ -63,7 +75,7 @@ if (userId) {
     });
   });
 
-  app.get("/dashboard", function (req, res) {
+  app.get("/dashboard", redirectLogin, function (req, res) {
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Your profile",
@@ -78,16 +90,16 @@ if (userId) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (
-      dbExample
+  // app.get("/example/:id", function (req, res) {
+  //   db.Example.findOne({ where: { id: req.params.id } }).then(function (
+  //     dbExample
 
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+  //   ) {
+  //     res.render("example", {
+  //       example: dbExample
+  //     });
+  //   });
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

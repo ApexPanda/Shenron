@@ -72,7 +72,6 @@ router.get("/results", function (req, res) {
 });
 
 router.get("/dashboard", redirectLogin, function (req, res) {
-  console.log("DASHBOARD SESSION: ", req.session);
   // This will load title and description for each page separately=================================
   res.locals.metaTags = {
     title: "Your profile",
@@ -82,8 +81,11 @@ router.get("/dashboard", redirectLogin, function (req, res) {
   };
   res.render("dashboard", {
     layout: "main"
-
   });
+  console.log("DASHBOARD SESSION: ", req.session);
+  console.log("DASHBOARD userId: ", req.session.userId);
+// Here is where to push info to front-end=================================================
+// or may have to make a post route for dashboard=========================================
 });
 
 // Render 404 page for any unmatched routes

@@ -25,7 +25,6 @@ $(document).ready(function () {
     }
     // window.location.assign("./dashboard"); // may need to just location.reload
     location.reload();
-    console.log("login button clicked");
   });
 
   // $(document).on("click", "#logout-submit", function (event) {

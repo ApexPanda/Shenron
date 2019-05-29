@@ -65,7 +65,7 @@ app.use("/", loginRouter);
 // app.use("/api", router); //=======================================
 
 // Routes
-// require("./routes/api-User-Routes")(app); // ================================
+require("./routes/api-User-Routes")(app); // ================================
 // require("./routes/api-Pet-Routes")(app);
 // require("./routes/htmlRoutes")(app); //===================================
 

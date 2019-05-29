@@ -70,7 +70,7 @@ p.main-text {
 }
 
 .content-padding {
-  padding: 10px;
+  padding: 20px;
 }
 
 
@@ -84,7 +84,44 @@ p.main-text {
   height: 200px;
 }
 
-.test {
-  background-color: pink;
-  font-size: 300%;
+.profile-move-up {
+  position: relative;
+  top:-180px;
+}
+
+.font-200{
+  font-size: 200% !important;
+}
+
+/* fur butlr colors */
+.butlr-pink {
+  background-color: #f88e78;
+}
+
+.butlr-green {
+  background-color: #02c9a8;
+}
+
+.butlr-blue {
+  background-color: #224e82;
+}
+
+.butlr-yellow {
+  background-color: #ffff99;
+}
+
+.butlr-pink-text {
+  color: #f88e78;
+}
+
+.butlr-green-text {
+  color: #02c9a8;
+}
+
+.butlr-blue-text {
+  color: #224e82;
+}
+
+.butlr-yellow-text {
+  color: #ffff99;
 }

@@ -98,28 +98,6 @@ module.exports = function (app) {
 
   });
 
-  // app.get("/userProfile", function (req, res) {
-  //   console.log(req.query);
-  //   console.log(req.query.id);
-  //   res.locals.metaTags = {
-  //     title: "User Profile",
-  //     description: "A place where pet owners can find all their needs in one place!",
-  //     keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
-  //     bg: "user-profile"
-  //   };
-  //   db.User.findAll({
-  //     where: {
-  //       id: req.query.id
-  //     }
-  //   })
-  //     .then(function (users) {
-  //       res.render("userProfile", { users: users });
-  //     })
-  //     .catch(function (err) {
-  //       console.log(err);
-  //     });
-  // });
-
   app.get("/profileResults", function (req, res) {
     console.log(req.query);
     console.log(req.query.role);

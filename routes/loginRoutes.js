@@ -1,5 +1,7 @@
 var connection = require("../config/connection.js");
-var exports = module.exports = {};
+
+// var db = require("../models");
+// var exports = module.exports = {};
 
 /* eslint-disable prettier/prettier */
 
@@ -49,9 +51,11 @@ exports.login = function (req, res) {
   // stores email and password to login
   var email = req.body.email;
   var password = req.body.password;
+  console.log("\n\nlogin details: " + email + ", " + password);
+  
   // query to find that user
   connection.query("SELECT * FROM users WHERE email = ?", [email],
-    function (error, results, fields) {
+    function (error, results) {
       // 400 if failed
       if (error) {
         console.log("Error ocurred", error);
@@ -62,7 +66,8 @@ exports.login = function (req, res) {
       } else {
         console.log("The solution is: ", results);
         // checks if password entered is equal to the password in the db
-        if (results[0].password === password) {
+        if (results.password === password) {
+          console.log("\npassword: " + password + "\n");
           // 200 if successful
           res.send({
             "code": 200,
@@ -70,7 +75,7 @@ exports.login = function (req, res) {
           });
         }
       }
-      console.log("fields: " + fields);
 
     });
+
 };

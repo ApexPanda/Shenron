@@ -1,0 +1,31 @@
+{{> navBar}}
+
+<div class="container grey lighten-4">
+
+  <div>
+    <img src="./images/site/index.jpeg" alt="top image" id="profile-header">
+  </div>
+  <div class="content-padding">
+    <h1>Profile Page</h1>
+    <ul>
+      <li>Name: </li>
+      <li>Email: </li>
+    </ul>
+    <a href="/">Home</a>
+    <form class="col s12" id="logout-form" method="POST" action="/api/logout">
+      <div class="row">
+        <div class="col m12">
+          <p class="center-align">
+            <button class="btn btn-large waves-effect waves-light" type="submit" name="action"
+              id="logout-submit">Logout</button>
+          </p>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>
+
+
+{{!-- <script src="./js/dashboard.js"></script> --}}

@@ -1,7 +1,7 @@
 {{!-- NAVBAR ============================================== --}}
 {{!-- Dropdown Structure --}}
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="./profileResults?role=Walker" term="Walker">Walkers</a></li>
+    <li><a href="./profileResults?role=Walker">Walkers</a></li>
     <li><a href="./profileResults?role=Groomer">Groomers</a></li>
     <li><a href="./profileResults?role=Sitter">Sitters</a></li>
     <li><a href="./profileResults?role=Veterinarian">Veterinarians</a></li>
@@ -32,6 +32,10 @@
                     Options<i class="material-icons right">arrow_drop_down</i></a></li>
             {{!-- Modal Trigger --}}
             <li><a class="waves-effect modal-trigger" href="#modal1">Login</a></li>
+            {{!-- Hidden dropdown only shows when user is logged in --}}
+            {{!-- <li><a class="dropdown-trigger waves-effect" href="#!" data-target="dropdown3">{{USER NAME HERE}}<i class="material-icons right">arrow_drop_down</i></a></li> --}}
+
+
             <li><a class="waves-effect" href="/signUp">Sign-Up</a></li>
         </ul>
     </div>
@@ -58,13 +62,13 @@
                         <form class="col s12" id="login-form">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="login-email" type="email" class="validate">
+                                    <input id="login-email" type="email" name="login-email" class="validate" required />
                                     <label for="login-email">Email</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="pass" type="password" class="validate">
+                                    <input id="pass" type="password" name="pass" class="validate" required />
                                     <label for="pass">Password</label>
                                 </div>
                             </div>
@@ -74,6 +78,7 @@
                                         <button class="btn btn-large waves-effect waves-light" type="submit"
                                             name="action" id="login-submit">Login</button>
                                     </p>
+
                                 </div>
                             </div>
                         </form>

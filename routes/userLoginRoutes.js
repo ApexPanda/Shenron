@@ -2,6 +2,12 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+// Bcrypt==========================
+var bcrypt = require("bcrypt");
+
+var hash = "$2b$10$69SrwAoAUNC5F.gtLEvrNON6VQ5EX89vNqLEqU655Oy9PeT/HRM/a";
+
+
 
 //=======================================================================================
 
@@ -157,6 +163,8 @@ router.get("*", function (req, res) {
 router.post("/api/login", function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
+  console.log(password)
+  console.log(email)
 
   console.log("\nlogin details: " + email + ", " + password + "\n");
 
@@ -164,26 +172,32 @@ router.post("/api/login", function (req, res) {
     console.log("No email/Pass");
     res.end();
   } else {
-    db.User.findAll({
+    db.User.findOne({
       where: {
         email: email
       }
       // Somewhere in here is where we need to perform encryption =========================
     }).then(function (dbUser) {
-      if (dbUser && dbUser[0].password === password) {
-        console.log("dbUserPassword :", dbUser[0].password);
-        console.log("PASSWORD MATCHES");
-        req.session.userId = dbUser[0].id;
-        console.log("SESSION Id: ", req.session.userId);
-        res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
-          "code": 200,
-          "success": "Login Successful"
-        });
-      } else {
-        console.log("PASSWORD DOES NOT MATCH");
-        res.end();
-      }
-
+      console.log(dbUser);
+      hash = dbUser.dataValues.password;
+      console.log(hash)
+      bcrypt
+      .compare(password, hash, err, pwMatches) => {
+        console.log("I'm the password manager", pwMatches);
+        if (pwMatches) {
+          console.log("dbUserPassword :", dbUser.dataValues.password);
+          console.log("PASSWORD MATCHES");
+          req.session.userId = dbUser.dataValues.id;
+          console.log("SESSION Id: ", req.session.userId);
+          res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
+            "code": 200,
+            "success": "Login Successful"
+          });
+        } else {
+          console.log("PASSWORD DOES NOT MATCH");
+          res.end();
+        }
+      })
     });
   }
 

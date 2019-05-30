@@ -4,7 +4,7 @@ var db = require("../models");
 
 var bcrypt = require("bcrypt");
 var saltRounds = 10;
-var plainTextPassword1 = "DFGh5546*%^_90";
+
 
 module.exports = function (app) {
   // Get all users
@@ -49,7 +49,8 @@ module.exports = function (app) {
 
   // Create a new user
   app.post("/api/users", function (req, res) {
-    bcrypt.hash(plainTextPassword1, saltRounds)
+    var password = req.body.password;
+    bcrypt.hash(password, saltRounds)
       .then(function(hash) {
         req.body.password = hash;
         db.User.create(req.body).then(function (dbUser) {

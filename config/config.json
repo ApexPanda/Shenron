@@ -8,8 +8,8 @@
   },
   "test": {
     "username": "root",
-    "password": "Password",
-    "database": "fcflqw2ed3fwf6q1",
+    "password": "root",
+    "database": "fur_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

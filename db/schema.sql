@@ -1,6 +1,5 @@
--- DROP DATABASE IF EXISTS fur_db;
-CREATE DATABASE fur_db;
-USE fur_db;
+-- CREATE DATABASE fcflqw2ed3fwf6q1;
+USE fcflqw2ed3fwf6q1;
 
 
 CREATE TABLE `users` (
@@ -61,5 +60,5 @@ CREATE TABLE posts (
    foreign key (`owner_id`) references users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-USE fur_db;
+USE fcflqw2ed3fwf6q1;
 DROP TABLE IF EXISTS examples;

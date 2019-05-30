@@ -76,6 +76,15 @@ if (process.env.NODE_ENV === "development") {
   syncOptions.force = true;
 }
 
+// Timeout
+app.use(timeout(15000));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) {next();
+  }
+}
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function () {
   app.listen(PORT, function () {

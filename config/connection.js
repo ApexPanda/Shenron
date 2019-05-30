@@ -16,5 +16,3 @@ if (process.env.JAWSDB_URL) {
     database: "fcflqw2ed3fwf6q1"
   });
 }
-
-var mysql = require("mysql");

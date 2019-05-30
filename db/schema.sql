@@ -61,4 +61,3 @@ CREATE TABLE posts (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 USE fcflqw2ed3fwf6q1;
-DROP TABLE IF EXISTS examples;

@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     image: DataTypes.STRING,
-    about_me: DataTypes.STRING,
+    about_me: DataTypes.TEXT,
     location: DataTypes.STRING,
     createdAt: {
       field: "created",

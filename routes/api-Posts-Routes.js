@@ -12,7 +12,6 @@ module.exports = function (app) {
 
   // Get posts based on owner id
   app.get("/api/posts/:owner_id", function (req, res) {
-    console.log(req.params.ownerid);
     db.Post.findAll({
       where: {
         owner_id: req.params.owner_id

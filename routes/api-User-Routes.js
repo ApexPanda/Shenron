@@ -38,7 +38,6 @@ module.exports = function (app) {
 
   // Get one user
   app.get("/api/users/:id", function (req, res) {
-    console.log(req.params.id);
     db.User.findAll({
       where: {
         id: req.params.id
@@ -50,23 +49,16 @@ module.exports = function (app) {
 
   // Create a new user
   app.post("/api/users", function (req, res) {
-  // console.log(req.body);
     bcrypt.hash(plainTextPassword1, saltRounds)
       .then(function(hash) {
-        console.log("Hash:" + hash);
         req.body.password = hash;
-        console.log(req.body.password);
-        console.log(req.body);
-
         db.User.create(req.body).then(function (dbUser) {
           res.json(dbUser);
-        // console.log(dbUser);
         });
       
       });
   // db.User.create(req.body).then(function (dbUser) {
   //   res.json(dbUser);
-  //   // console.log(dbUser);
   // });
   });
 

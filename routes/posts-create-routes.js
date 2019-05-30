@@ -5,7 +5,6 @@ var exports = module.exports = {};
 
 // register post route
 exports.registerPost = function (req, res) {
-  console.log("req", req.body);
   // should add date as current time 
   var today = new Date();
   // object for the post 

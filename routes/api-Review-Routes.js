@@ -12,7 +12,6 @@ module.exports = function (app) {
 
   // Get reviews based on owner id
   app.get("/api/reviews/:owner_id", function (req, res) {
-    console.log(req.params.ownerid);
     db.Review.findAll({
       where: {
         owner_id: req.params.owner_id

@@ -12,7 +12,6 @@ module.exports = function (app) {
 
   // Get pets based on owner id
   app.get("/api/pets/:owner_id", function (req, res) {
-    console.log(req.params.ownerid);
     db.Pet.findAll({
       where: {
         owner_id: req.params.owner_id

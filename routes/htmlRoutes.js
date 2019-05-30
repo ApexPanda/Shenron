@@ -16,7 +16,6 @@ module.exports = function (app) {
 
 
   app.get("/", function (req, res) {
-    console.log(req.session);
     // var userId = req.session.userId;
     // if (userId) {
 
@@ -73,8 +72,6 @@ module.exports = function (app) {
 
   // example of proper url for this query: http://localhost:3000/profiles?id=4
   app.get("/userProfile", function (req, res) {
-    console.log(req.query);
-    console.log(req.query.id);
     res.locals.metaTags = {
       title: "User Profile",
       description: "A place where pet owners can find all their needs in one place!",
@@ -95,8 +92,6 @@ module.exports = function (app) {
   });
 
   app.get("/profileResults", function (req, res) {
-    console.log(req.query);
-    console.log(req.query.role);
     res.locals.metaTags = {
       title: "Matches for you!",
       description: "A place where pet owners can find all their needs in one place!",

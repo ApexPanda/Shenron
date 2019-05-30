@@ -7,7 +7,6 @@ var connection = require("../config/connection.js");
 
 // register route
 exports.register = function (req, res) {
-  console.log("req", req.body);
   // should add date as current time 
   var today = new Date();
   // object for the user 

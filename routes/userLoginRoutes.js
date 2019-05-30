@@ -57,6 +57,28 @@ router.get("/userProfile", function (req, res) {
   });
 });
 
+// router.get("/profileResults", function (req, res) {
+//   console.log(req.query);
+//   console.log(req.query.role);
+//   res.locals.metaTags = {
+//     title: "Matches for you!",
+//     description: "A place where pet owners can find all their needs in one place!",
+//     keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+//     bg: "results"
+//   };
+//   db.User.findAll({
+//     where: {
+//       role: req.query.role
+//     }
+//   })
+//     .then(function (users) {
+//       res.render("results", { users: users });
+//     })
+//     .catch(function (err) {
+//       console.log(err);
+//     });
+// });
+
 router.get("/results", function (req, res) {
   // This will load title and description for each page separately=================================
   res.locals.metaTags = {

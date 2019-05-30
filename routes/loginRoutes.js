@@ -1,6 +1,6 @@
 var connection = require("../config/connection.js");
 
-var db = require("../models");
+// var db = require("../models");
 // var exports = module.exports = {};
 
 /* eslint-disable prettier/prettier */

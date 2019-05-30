@@ -1,9 +1,28 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  // Load index page
+
+  var redirectLogin = function (res, req, next) {
+    if (!req.session.userId) {
+      res.redirect("/signUp");
+    } else {
+      next();
+    }
+  };
+
+
+
+
+
 
   app.get("/", function (req, res) {
+    console.log(req.session);
+    // var userId = req.session.userId;
+    // if (userId) {
+
+    // }
+
+
     // This will load title and description for each page separately=================================
     res.locals.metaTags = {
       title: "Fur Butlr",
@@ -134,22 +153,31 @@ module.exports = function (app) {
     });
   });
 
-  // Load example page and pass in an example by id
+  app.get("/dashboard", redirectLogin, function (req, res) {
+    // This will load title and description for each page separately=================================
+    res.locals.metaTags = {
+      title: "Your profile",
+      description: "A place where pet owners can find all their needs in one place!",
+      keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+      bg: "dashboard"
+    };
+    res.render("dashboard", {
+      layout: "main"
 
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (
-      dbExample
-
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
     });
   });
 
-  app.get("/signup", function (req, res) {
-    res.render("signUp", {});
-  });
+  // Load example page and pass in an example by id
+  // app.get("/example/:id", function (req, res) {
+  //   db.Example.findOne({ where: { id: req.params.id } }).then(function (
+  //     dbExample
+
+  //   ) {
+  //     res.render("example", {
+  //       example: dbExample
+  //     });
+  //   });
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

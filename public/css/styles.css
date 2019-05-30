@@ -9,7 +9,7 @@ body {
 .main-content {
   height: 100%;
 }
-body.index {
+/* body.index {
   background-image: url("../images/site/index.jpeg");
   height: 100%;
   background-position: center;
@@ -17,7 +17,7 @@ body.index {
   background-size: cover;
   background-attachment: fixed;
   overflow-y: hidden;
-}
+} */
 body.sign-up {
   background-image: url("../images/site/sign-up.jpeg");
   height: 100%;
@@ -25,7 +25,7 @@ body.sign-up {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 /* body.results {
   background-image: url("../images/site/results.jpeg");
@@ -49,79 +49,104 @@ p.main-text {
 .left-margin-0 {
   margin-left: 0;
 }
-/* For Testing MediaQuery */
-/* .container {
-  border: 1px solid;
-} */
 
-#profile-header {
-  width: 100%;
-  height: 200px;
-}
-
-.pet-image {
-  height: 200px;
-  width: 200px;
-}
-
-.profile-image {
-  height: 200px;
-  width: 200px;
+.top-margin-0 {
+  margin-top: 0;
 }
 
 .content-padding {
   padding: 20px;
 }
 
-
-.result-profile-image {
-  width: 200px;
-  height: 200px;
-}
-
-.profile-pet-image {
-  width: 200px;
-  height: 200px;
-}
-
-.profile-move-up {
-  position: relative;
-  top:-180px;
+.max-height{
+  min-height: 1000% !important;
 }
 
 .font-200{
-  font-size: 200% !important;
+  font-size: 150% !important;
+}
+
+/* For Testing MediaQuery */
+/* .container {
+  border: 1px solid;
+} */
+
+/* index styles */
+
+.job-box {
+  height:350px;
+  width:100%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px !important;
+}
+
+/* results styles */
+
+.result-profile-image {
+  width:200px;
+  height:200px;
+  background-position: center;
+  background-size: cover;
+}
+
+/* profile styles */
+
+#profile-header {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.pet-image {
+  width:200px;
+  height:200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile-image {
+  width:100%;
+  height:200px;
+  background-position: center;
+  background-size: cover;
 }
 
 /* fur butlr colors */
+
 .butlr-pink {
-  background-color: #f88e78;
+  background-color: #f88e78 !important;
 }
 
 .butlr-green {
-  background-color: #02c9a8;
+  background-color: #02c9a8 !important;
 }
 
 .butlr-blue {
-  background-color: #224e82;
+  background-color: #224e82 !important;
 }
 
 .butlr-yellow {
-  background-color: #ffff99;
+  background-color: #ffff99 !important;
 }
 
 .butlr-pink-text {
-  color: #f88e78;
+  color: #f88e78 !important;
 }
 
 .butlr-green-text {
-  color: #02c9a8;
+  color: #02c9a8 !important;
 }
 
 .butlr-blue-text {
-  color: #224e82;
+  color: #224e82 !important;
 }
 
 .butlr-yellow-text {
-  color: #ffff99;
+  color: #ffff99 !important;
+}
+
+.card,.card-image{
+  border-radius: 10px !important;
 }

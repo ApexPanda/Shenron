@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     title: DataTypes.STRING,
     rating: DataTypes.INTEGER,
     review: DataTypes.TEXT,
-    pet_id: DataTypes.INTEGER,
+    author_id: DataTypes.INTEGER,
     owner_id: DataTypes.INTEGER,
     createdAt: {
       field: "created",

@@ -12,19 +12,18 @@
 
     <div class="col s12 m9">
         <h2 class="header white-text">{{first_name}} {{last_name}}</h2>
-        <div class="card horizontal">
-            <div class="card-image">
-                <img class="result-profile-image"
-                    src="{{#if image}}{{image}}{{else}}./images/site/default-profile-2.jpg{{/if}}">
+        <div class="card horizontal butlr-blue white-text">
+            <div class="card-image result-profile-image"
+                style="background-image: url('{{#if image}}{{image}}{{else}}{{#if pet_owner}}./images/site/default-profile-2.jpg{{else}}./images/site/default-profile-3.jpg{{/if}}{{/if}}')">
             </div>
             <div class="card-stacked">
-                <div class="card-content">
+                <div class="card-content  font-200">
                     <p>Pet {{role}}</p>
                     <p>{{location}}</p>
                     <p>Average Rating: ****</p>
                 </div>
                 <div class="card-action">
-                    <a href="./userProfile?id={{id}}">More Info</a>
+                    <a href="./userProfile?id={{id}}" class="butlr-yellow-text">More Info</a>
                 </div>
             </div>
         </div>

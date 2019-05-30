@@ -50,31 +50,25 @@ module.exports = function (app) {
 
   // Create a new user
   app.post("/api/users", function (req, res) {
-    // console.log(req.body);
+  // console.log(req.body);
     bcrypt.hash(plainTextPassword1, saltRounds)
       .then(function(hash) {
         console.log("Hash:" + hash);
+        req.body.password = hash;
         console.log(req.body.password);
+        console.log(req.body);
+
+        db.User.create(req.body).then(function (dbUser) {
+          res.json(dbUser);
+        // console.log(dbUser);
+        });
+      
       });
-    db.User.create(req.body).then(function (dbUser) {
-      res.json(dbUser);
-      // console.log(dbUser);
-    });
+  // db.User.create(req.body).then(function (dbUser) {
+  //   res.json(dbUser);
+  //   // console.log(dbUser);
+  // });
   });
 
-
   
-    
-
-  // I don't think we need to delete an ID so commented this out 
-  // // Delete a user by id
-  // app.delete("/api/users/:id", function (req, res) {
-  //   db.User.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function (dbUser) {
-  //     res.json(dbUser);
-  //   });
-  // });
-};
+}; 

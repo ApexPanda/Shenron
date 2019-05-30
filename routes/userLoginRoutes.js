@@ -197,11 +197,11 @@ router.post("/api/login", function (req, res) {
           console.log("PASSWORD DOES NOT MATCH");
           res.end();
         }
-      })
-    });
-  }
+      }
+    }
+  
 
-});
+
 
 // Logout route
 router.post("/api/logout", function (req, res) {

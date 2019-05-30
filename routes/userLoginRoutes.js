@@ -17,7 +17,7 @@ var redirectLogin = function (req, res, next) {
 router.get("/", function (req, res) {
   console.log("\n\nROUTER.GET SESSION: ", req.session);
   console.log("ROUTER.GET SESSION ID: ", req.session.id);
-  console.log("ROUTER.GET userId: ", req.session.userId); 
+  console.log("ROUTER.GET userId: ", req.session.userId);
 
   // This will load title and description for each page separately=================================
   res.locals.metaTags = {
@@ -45,39 +45,71 @@ router.get("/signUp", function (req, res) {
 });
 
 router.get("/userProfile", function (req, res) {
-  // This will load title and description for each page separately=================================
-  res.locals.metaTags = {
-    title: "Your Profile",
-    description: "A place where pet owners can find all their needs in one place!",
-    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
-    bg: "user-profile"
-  };
-  res.render("userProfile", {
-    layout: "main"
+  console.log(req.query);
+  console.log(req.query.id);
+  var users = db.User.findAll({
+    where: {
+      id: req.query.id
+    }
   });
+
+  var pets = db.Pet.findAll({
+    where: {
+      // eslint-disable-next-line camelcase
+      owner_id: req.query.id
+    }
+  });
+
+  var reviews = db.Review.findAll({
+    where: {
+      // eslint-disable-next-line camelcase
+      owner_id: req.query.id
+    }
+  });
+
+  Promise
+    .all([users, pets, reviews])
+    .then(function (responses) {
+      console.log("**********COMPLETE RESULTS****************");
+      console.log(responses[0]); // user profile
+      console.log(responses[1]); // all reports
+      console.log(responses[2]); // report details
+      res.render("userProfile", {
+        users: responses[0],
+        pets: responses[1],
+        reviews: responses[2],
+      });
+
+    })
+    .catch(function (err) {
+      console.log("**********ERROR RESULT****************");
+      console.log(err);
+    });
+
+
 });
 
-// router.get("/profileResults", function (req, res) {
-//   console.log(req.query);
-//   console.log(req.query.role);
-//   res.locals.metaTags = {
-//     title: "Matches for you!",
-//     description: "A place where pet owners can find all their needs in one place!",
-//     keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
-//     bg: "results"
-//   };
-//   db.User.findAll({
-//     where: {
-//       role: req.query.role
-//     }
-//   })
-//     .then(function (users) {
-//       res.render("results", { users: users });
-//     })
-//     .catch(function (err) {
-//       console.log(err);
-//     });
-// });
+router.get("/profileResults", function (req, res) {
+  console.log(req.query);
+  console.log(req.query.role);
+  res.locals.metaTags = {
+    title: "Matches for you!",
+    description: "A place where pet owners can find all their needs in one place!",
+    keywords: "pet grooming, pet sitting, pet walking, veterinarian services, kennel services, pet trainers, pet friendly parks",
+    bg: "results"
+  };
+  db.User.findAll({
+    where: {
+      role: req.query.role
+    }
+  })
+    .then(function (users) {
+      res.render("results", { users: users });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+});
 
 router.get("/results", function (req, res) {
   // This will load title and description for each page separately=================================
@@ -106,8 +138,8 @@ router.get("/dashboard", redirectLogin, function (req, res) {
   });
   console.log("DASHBOARD SESSION: ", req.session);
   console.log("DASHBOARD userId: ", req.session.userId);
-// Here is where to push info to front-end=================================================
-// or may have to make a post route for dashboard=========================================
+  // Here is where to push info to front-end=================================================
+  // or may have to make a post route for dashboard=========================================
 });
 
 // Render 404 page for any unmatched routes

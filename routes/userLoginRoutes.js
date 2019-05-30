@@ -163,8 +163,8 @@ router.get("*", function (req, res) {
 router.post("/api/login", function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
-  console.log(password)
-  console.log(email)
+  console.log(password);
+  console.log(email);
 
   console.log("\nlogin details: " + email + ", " + password + "\n");
 
@@ -180,31 +180,29 @@ router.post("/api/login", function (req, res) {
     }).then(function (dbUser) {
       console.log(dbUser);
       hash = dbUser.dataValues.password;
-      console.log(hash)
+      console.log(hash);
       bcrypt
-      .compare((password, hash, err, pwMatches) => {
-        console.log("I'm the password manager", pwMatches);
-        if (pwMatches) {
-          console.log("dbUserPassword :", dbUser.dataValues.password);
-          console.log("PASSWORD MATCHES");
-          req.session.userId = dbUser.dataValues.id;
-          console.log("SESSION Id: ", req.session.userId);
-          res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
-            "code": 200,
-            "success": "Login Successful"
-          });
-        } else {
-          console.log("PASSWORD DOES NOT MATCH");
-          res.end();
-        }
-      }
-    );
-  
+        .compare((password, hash, err, pwMatches) => {
+          console.log("I'm the password manager", pwMatches);
+          if (pwMatches) {
+            console.log("dbUserPassword :", dbUser.dataValues.password);
+            console.log("PASSWORD MATCHES");
+            req.session.userId = dbUser.dataValues.id;
+            console.log("SESSION Id: ", req.session.userId);
+            res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
+              "code": 200,
+              "success": "Login Successful"
+            });
+          } else {
+            console.log("PASSWORD DOES NOT MATCH");
+            res.end();
+          }
+        });
+
     });
 
   }
-})
-
+});
 
 // Logout route
 router.post("/api/logout", function (req, res) {

@@ -89,6 +89,50 @@ router.get("/userProfile", function (req, res) {
 
 });
 
+router.get("/testChange", function (req, res) {
+  console.log(req.query);
+  console.log(req.query.id);
+  var users = db.User.findAll({
+    where: {
+      id: req.query.id
+    }
+  });
+
+  var pets = db.Pet.findAll({
+    where: {
+      // eslint-disable-next-line camelcase
+      owner_id: req.query.id
+    }
+  });
+
+  var reviews = db.Review.findAll({
+    where: {
+      // eslint-disable-next-line camelcase
+      owner_id: req.query.id
+    }
+  });
+
+  Promise
+    .all([users, pets, reviews])
+    .then(function (responses) {
+      console.log("**********COMPLETE RESULTS****************");
+      console.log(responses[0]); // user profile
+      console.log(responses[1]); // all reports
+      console.log(responses[2]); // report details
+      res.render("userProfile", {
+        users: responses[0],
+        pets: responses[1],
+        reviews: responses[2],
+      });
+
+    })
+    .catch(function (err) {
+      console.log("**********ERROR RESULT****************");
+      console.log(err);
+    });
+
+});
+
 router.get("/profileResults", function (req, res) {
   console.log(req.query);
   console.log(req.query.role);
@@ -110,6 +154,8 @@ router.get("/profileResults", function (req, res) {
       console.log(err);
     });
 });
+
+
 
 router.get("/results", function (req, res) {
   // This will load title and description for each page separately=================================

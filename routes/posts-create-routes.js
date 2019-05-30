@@ -12,7 +12,7 @@ exports.registerPost = function (req, res) {
     "title": DataTypes.STRING,
     "rating": DataTypes.INTEGAR,
     "post": DataTypes.STRING,
-    "pet_id": DataTypes.INTEGAR,
+    "author_id": DataTypes.INTEGAR,
     "owner_id": DataTypes.INTEGAR,
     "created": today,
     "modified": today

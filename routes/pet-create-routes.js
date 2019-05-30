@@ -5,7 +5,6 @@ var exports = module.exports = {};
 
 // register pet route
 exports.registerPet = function (req, res) {
-  console.log("req", req.body);
   // should add date as current time 
   var today = new Date();
   // object for the pet 

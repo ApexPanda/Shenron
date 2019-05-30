@@ -3,35 +3,35 @@ var exports = module.exports = {};
 
 /* eslint-disable prettier/prettier */
 
-// register review route
-exports.registerReview = function (req, res) {
+// register post route
+exports.registerPost = function (req, res) {
   // should add date as current time 
   var today = new Date();
-  // object for the review 
-  var reviews = {
+  // object for the post 
+  var posts = {
     "title": DataTypes.STRING,
     "rating": DataTypes.INTEGAR,
-    "review": DataTypes.STRING,
-    "pet_id": DataTypes.INTEGAR,
+    "post": DataTypes.STRING,
+    "author_id": DataTypes.INTEGAR,
     "owner_id": DataTypes.INTEGAR,
     "created": today,
     "modified": today
   };
-  // query to insert the new review into the table 
-  RTCPeerConnection.query("INSERT INTO reviews SET ?", reviews, function (error, results, fields) {
+  // query to insert the new post into the table 
+  RTCPeerConnection.query("INSERT INTO posts SET ?", posts, function (error, results, fields) {
     // 400 if failed
     if (error) {
       console.log("Error ocurred", error);
       res.send({
         "code": 400,
-        "failed": "Review error occured"
+        "failed": "Post error occured"
       });
       // 200 if successful
     } else {
       console.log("The solution is: ", results);
       res.send({
         "code": 200,
-        "success": "Review added successfully"
+        "success": "Post added successfully"
       });
     }
     console.log(fields);

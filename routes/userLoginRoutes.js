@@ -182,7 +182,7 @@ router.post("/api/login", function (req, res) {
       hash = dbUser.dataValues.password;
       console.log(hash)
       bcrypt
-      .compare(password, hash, err, pwMatches) => {
+      .compare((password, hash, err, pwMatches) => {
         console.log("I'm the password manager", pwMatches);
         if (pwMatches) {
           console.log("dbUserPassword :", dbUser.dataValues.password);
@@ -198,9 +198,12 @@ router.post("/api/login", function (req, res) {
           res.end();
         }
       }
-    }
+    );
   
+    });
 
+  }
+})
 
 
 // Logout route
@@ -215,4 +218,6 @@ router.post("/api/logout", function (req, res) {
   console.log("LOGGED OUT");
 });
 
-module.exports = router;
+module.exports = router; 
+
+

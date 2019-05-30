@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Baloo+Tamma|Fjalla+One|Fredoka+One|Lobster|Permanent+Marker|Sedgwick+Ave|Staatliches&display=swap');
+
+/* 
+font-family: 'Permanent Marker', cursive;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Sedgwick Ave', cursive;
+font-family: 'Fredoka One', cursive;
+*/
+
+/* fur butlr fonts */
+
+.font1{
+font-family: 'Fredoka One', cursive;
+}
+.font2{
+  font-family: 'Sedgwick Ave', cursive;
+}
+.font3{
+  font-family: 'Fjalla One', cursive
+}
+
+/* universe styles */
 html {
   height: 100%;
   margin: 0;
@@ -9,33 +31,7 @@ body {
 .main-content {
   height: 100%;
 }
-/* body.index {
-  background-image: url("../images/site/index.jpeg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-y: hidden;
-} */
-body.sign-up {
-  background-image: url("../images/site/sign-up.jpeg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  /* overflow-y: auto; */
-}
-/* body.results {
-  background-image: url("../images/site/results.jpeg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-y: auto;
-} */
+
 .nav-wrapper {
   padding-left: 2em;
   padding-right: 2em;
@@ -111,6 +107,16 @@ p.main-text {
   height:200px;
   background-position: center;
   background-size: cover;
+}
+
+/* change profile styles */
+
+.long-text-box {
+  height: 200px !important;
+}
+
+.select-dropdown, .dropdown-trigger {
+
 }
 
 /* fur butlr colors */

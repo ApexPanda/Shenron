@@ -108,7 +108,7 @@ router.get("/testChange", function (req, res) {
   var reviews = db.Review.findAll({
     where: {
       // eslint-disable-next-line camelcase
-      owner_id: req.query.id
+      author_id: req.query.id
     }
   });
 
@@ -119,7 +119,7 @@ router.get("/testChange", function (req, res) {
       console.log(responses[0]); // user profile
       console.log(responses[1]); // all reports
       console.log(responses[2]); // report details
-      res.render("userProfile", {
+      res.render("testChange", {
         users: responses[0],
         pets: responses[1],
         reviews: responses[2],

@@ -18,20 +18,48 @@
                     </div>
 
                     <div class=" card-content white-text">
-                        <p>Image URL: {{image}}</p>
-                        <span class="card-title butlr-green-text">{{first_name}} {{last_name}}</span>
-                        <p>Pet {{role}}</p>
-                        <p>{{location}}</p>
-                        <p>Rating: <span>4.5/5</span></p>
+
+                        <textarea id="user-first-name" class="materialize-textarea white-text"
+                            placeholder="{{first_name}}"></textarea>
+                        <label for="user-first-name">First</label>
+
+                        <textarea id="user-last-name" class="materialize-textarea white-text"
+                            placeholder="{{last_name}}"></textarea>
+                        <label for="user-last-name">Last</label>
+
+                        <textarea id="user-image-url" class="materialize-textarea white-text"
+                            placeholder="{{image}}"></textarea>
+                        <label for="user-image-url">image url</label>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <select id="user-role" class="white-text">
+                                    <option value="" disabled selected>{{role}}</option>
+                                    <option value="Owner">Owner</option>
+                                    <option value="Walker">Walker</option>
+                                    <option value="Groomer">Groomer</option>
+                                    <option value="Sitter">Sitter</option>
+                                </select>
+                                <label for="user-role">Role</label>
+                            </div>
+                        </div>
+
+                        <textarea id="user-location" class="materialize-textarea white-text"
+                            placeholder="{{location}}"></textarea>
+                        <label for="user-location">location</label>
+
                     </div>
                 </div>
             </div>
+
 
             <div class="col s12 m8">
                 <div class="card butlr-blue white-text">
                     <div class=" card-content">
                         <span class="card-title butlr-green-text">About Me</span>
-                        <p>{{about_me}}</p>
+                        <textarea id="user-about-me" class="materialize-textarea white-text long-text-box"
+                            placeholder="{{about_me}}"></textarea>
+                        <label for="user-about-me">About Me</label>
                     </div>
                 </div>
             </div>
@@ -54,12 +82,26 @@
 
                         <div class="card-stacked">
                             <div class="card-content">
-                                <span class="card-title butlr-green-text">{{pet_name}}</span>
 
-                                <p>{{pet_type}}</p>
-                                <p>{{location}}</p>
-                                <br>
-                                <p>{{about_me}}</p>
+                                <textarea id="pet-name{{id}}" class="materialize-textarea white-text"
+                                    placeholder="{{pet_name}}"></textarea>
+                                <label for="pet-name{{id}}">Name</label>
+
+                                <textarea id="pet-image-url{{id}}" class="materialize-textarea white-text"
+                                    placeholder="{{image}}"></textarea>
+                                <label for="pet-image-url{{id}}">image url</label>
+
+                                <textarea id="pet-type{{id}}" class="materialize-textarea white-text"
+                                    placeholder="{{pet_type}}"></textarea>
+                                <label for="pet-type{{id}}">Pet Type</label>
+
+                                <textarea id="pet-location{{id}}" class="materialize-textarea white-text"
+                                    placeholder="{{location}}"></textarea>
+                                <label for="pet-location{{id}}">Location</label>
+
+                                <textarea id="pet-about-me{{id}}" class="materialize-textarea white-text long-text-box"
+                                    placeholder="{{about_me}}"></textarea>
+                                <label for="pat-about-me{{id}}">About Me</label>
                             </div>
 
                         </div>
@@ -74,7 +116,7 @@
             {{/each}}
 
             {{!-- Profile Reviews --}}
-            <h4 class="center-align">Reviews</h4>
+            <h4 class="center-align">Reviews I Have Written</h4>
             {{#each reviews}}
             <div class="row">
                 <div class="col s12">
@@ -82,15 +124,40 @@
                     <div class="card horizontal">
                         <div class="card-stacked">
                             <div class="card-content">
-                                <span class="card-title butlr-green-text">{{title}}</span>
 
-                                <p>Rating: {{rating}} / 10</p>
+                                <textarea id="review-title{{id}}" class="materialize-textarea white-text"
+                                    placeholder="{{title}}"></textarea>
+                                <label for="review-title{{id}}">Title</label>
 
-                                <br>
-                                <p>{{review}}</p>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="review-rating{{id}}" class="white-text">
+                                            <option value="" disabled selected>{{rating}}</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                        <label for="review-rating{{id}}">Rating</label>
+                                    </div>
+                                </div>
+
+                                <textarea id="review-text{{id}}" class="materialize-textarea white-text long-text-box"
+                                    placeholder="{{review}}"></textarea>
+                                <label for="review-text{{id}}">Review</label>
+
                             </div>
                             <div class="card-action">
-                                <a href="./userProfile?id={{author_id}}">View Author</a>
+                                <a href="./userProfile?id={{owner_id}}">View Profile</a>
+
+                                <a class="waves-effect waves-light btn grey">CANCEL</a>
+                                <a class="waves-effect waves-light btn butlr-green">SAVE</a>
                             </div>
                         </div>
                     </div>

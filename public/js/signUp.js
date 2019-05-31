@@ -79,13 +79,13 @@ $(document).ready(function () {
             console.log(newUser);
 
             $.ajax("/api/users", {
-                type: "POST",
+                method: "POST",
                 data: newUser
             }).then(
                 function () {
                     console.log("created new user");
                     // function (event) { return true };
-                    location.reload();
+                    // location.reload();
                 }
             );
 

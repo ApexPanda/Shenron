@@ -15,3 +15,4 @@ INSERT INTO reviews(title, rating, review, author_id, owner_id, created, modifie
 INSERT INTO reviews(title, rating, review, author_id, owner_id, created, modified) VALUES ("Review example 2", "8", "They were so attentive", "1", "2", "2019-05-03 12:00:00", "2019-05-03 12:00:00");
 INSERT INTO reviews(title, rating, review, author_id, owner_id, created, modified) VALUES ("Review example 3", "3", "They sucked", "2", "3", "2019-05-03 12:00:00", "2019-05-03 12:00:00");
 INSERT INTO reviews(title, rating, review, author_id, owner_id, created, modified) VALUES ("Review example 5", "6", "They were so sweet", "3", "4", "2019-05-03 12:00:00", "2019-05-03 12:00:00");
+SELECT * FROM users;

@@ -164,10 +164,10 @@ router.post("/api/login", function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
   console.log(password);
-  console.log(email);
-
+  console.log(email);  
+  
   console.log("\nlogin details: " + email + ", " + password + "\n");
-
+  
   if (!email || !password) {
     console.log("No email/Pass");
     res.end();
@@ -176,11 +176,11 @@ router.post("/api/login", function (req, res) {
       where: {
         email: email
       }
-      // Somewhere in here is where we need to perform encryption =========================
     }).then(function (dbUser) {
-      console.log(dbUser);
+      console.log("USER: ", dbUser);
       hash = dbUser.dataValues.password;
-      console.log(hash);
+      console.log("HASH: ", hash);
+
       bcrypt
         .compare((password, hash, err, pwMatches) => {
           console.log("I'm the password manager", pwMatches);
@@ -189,7 +189,7 @@ router.post("/api/login", function (req, res) {
             console.log("PASSWORD MATCHES");
             req.session.userId = dbUser.dataValues.id;
             console.log("SESSION Id: ", req.session.userId);
-            res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
+            res.send({
               "code": 200,
               "success": "Login Successful"
             });

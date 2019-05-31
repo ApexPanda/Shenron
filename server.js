@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(session({
   secret: "jnI67r12gfJH79Greb0EmnObvesk5J98HgfG",
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     maxAge: 1000 * 60 * 60,
     sameSite: true,

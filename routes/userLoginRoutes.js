@@ -185,15 +185,14 @@ router.post("/api/login", function (req, res) {
         email: email
       }
     }).then(function (dbUser) {
-      console.log("USER: ", dbUser);
+      // console.log("USER: ", dbUser);
       hash = dbUser.dataValues.password;
-      console.log("HASH: ", hash);
-
+      // console.log("HASH: ", hash);
       bcrypt
         .compare(password, hash, (err, pwMatches) => {
           console.log("I'm the password manager", pwMatches);
           if (pwMatches) {
-            console.log("dbUserPassword :", dbUser.dataValues.password);
+            // console.log("dbUserPassword :", dbUser.dataValues.password);
             console.log("PASSWORD MATCHES");
             req.session.userId = dbUser.dataValues.id;
             console.log("SESSION Id: ", req.session.userId);
@@ -206,9 +205,7 @@ router.post("/api/login", function (req, res) {
             res.end();
           }
         });
-
     });
-
   }
 });
 

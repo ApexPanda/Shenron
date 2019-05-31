@@ -59,15 +59,7 @@ module.exports = function (app) {
         });
 
       });
-
     console.log("api/user info: ", req.body);
-
-    // db.User.create(req.body).then(function (dbUser) {
-    //   console.log("dbUser from .create: ", dbUser);
-    //   res.json(dbUser);
-    // });
-
   });
-
 
 }; 

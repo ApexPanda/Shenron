@@ -64,7 +64,7 @@ module.exports = function (app) {
     // });
   });
 
-  // update user stats
+  // update user
   app.put("/api/user/update", function (req, res) {
     console.log(req.body);
     db.User.update(

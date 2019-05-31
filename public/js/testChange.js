@@ -22,40 +22,40 @@ $(document).ready(function () {
             var serviceProvider = 1;
         }
 
-        var newInfo = {
+        var alterInfo = {
             id: userId,
         };
 
         if (firstName.length !== 0) {
             // eslint-disable-next-line camelcase
-            newInfo.first_name = firstName;
+            alterInfo.first_name = firstName;
         }
         if (lastName.length !== 0) {
             // eslint-disable-next-line camelcase
-            newInfo.last_name = lastName;
+            alterInfo.last_name = lastName;
         }
         if (imageUrl.length !== 0) {
             // eslint-disable-next-line camelcase
-            newInfo.image = imageUrl;
+            alterInfo.image = imageUrl;
         }
         if (userLocation.length !== 0) {
-            newInfo.location = userLocation;
+            alterInfo.location = userLocation;
         }
 
         if (jobTitle !== null) {
-            newInfo.role = jobTitle;
+            alterInfo.role = jobTitle;
             // eslint-disable-next-line camelcase
-            newInfo.service_provider = serviceProvider;
+            alterInfo.service_provider = serviceProvider;
             // eslint-disable-next-line camelcase
-            newInfo.pet_owner = petOwner;
+            alterInfo.pet_owner = petOwner;
         }
 
-        console.log(newInfo);
+        console.log(alterInfo);
 
 
         $.ajax("/api/user/update", {
             type: "PUT",
-            data: newInfo
+            data: alterInfo
         }).then(
             function () {
                 console.log("Profile Updated.");
@@ -87,20 +87,20 @@ $(document).ready(function () {
 
         var aboutMe = $("#user-about-me").val().trim();
 
-        var newAbout = {
+        var alterAbout = {
             id: userId
         };
 
         if (aboutMe.length !== 0) {
             // eslint-disable-next-line camelcase
-            newAbout.about_me = aboutMe;
+            alterAbout.about_me = aboutMe;
         }
 
-        console.log(newAbout);
+        console.log(alterAbout);
 
         $.ajax("/api/user/update", {
             type: "PUT",
-            data: newAbout
+            data: alterAbout
         }).then(
             function () {
                 console.log("Profile Updated.");
@@ -117,6 +117,71 @@ $(document).ready(function () {
 
         $("#user-about-me").val("");
 
+
+    });
+
+    // change pets
+
+    $(".pet-save-btn").on("click", function () {
+        petId = $(this).attr("data-pet-id");
+        console.log(petId);
+
+        var petName = $("#pet-name" + petId).val().trim();
+        var imageUrl = $("#pet-image-url" + petId).val().trim();
+        var petType = $("#pet-type" + petId).val().trim();
+        var petLocation = $("#pet-location" + petId).val().trim();
+        var petAbout = $("#pet-about-me" + petId).val().trim();
+
+
+        var alterPet = {
+            id: petId,
+        };
+
+        if (petName.length !== 0) {
+            // eslint-disable-next-line camelcase
+            alterPet.pet_name = petName;
+        }
+        if (imageUrl.length !== 0) {
+            // eslint-disable-next-line camelcase
+            alterPet.image = imageUrl;
+        }
+        if (petType.length !== 0) {
+            // eslint-disable-next-line camelcase
+            alterPet.pet_type = petType;
+        }
+        if (petLocation.length !== 0) {
+            alterPet.location = petLocation;
+        }
+        if (petAbout.length !== 0) {
+            // eslint-disable-next-line camelcase
+            alterPet.about_me = petAbout;
+        }
+
+        console.log(alterPet);
+
+
+        $.ajax("/api/pet/update", {
+            type: "PUT",
+            data: alterPet
+        }).then(
+            function () {
+                console.log("Profile Updated.");
+                alert("Pet Info Updated!");
+                location.reload();
+            }
+        );
+
+    });
+
+    $(".pet-cancel-btn").on("click", function () {
+        userId = $(this).attr("data-user-id");
+        console.log(userId);
+
+        $("#user-first-name").val("");
+        $("#user-last-name").val("");
+        $("#user-image-url").val("");
+        $("#user-role").val("");
+        $("#user-location").val("");
 
     });
 

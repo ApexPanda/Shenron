@@ -172,10 +172,10 @@ router.post("/api/login", function (req, res) {
   var email = req.body.email;
   var password = req.body.password;
   console.log(password);
-  console.log(email);  
-  
+  console.log(email);
+
   console.log("\nlogin details: " + email + ", " + password + "\n");
-  
+
   if (!email || !password) {
     console.log("No email/Pass");
     res.end();
@@ -196,6 +196,21 @@ router.post("/api/login", function (req, res) {
             console.log("PASSWORD MATCHES");
             req.session.userId = dbUser.dataValues.id;
             console.log("SESSION Id: ", req.session.userId);
+
+            var userObj = {
+              id: dbUser.dataValues.id,
+              firstName: dbUser.dataValues.first_name,
+              lastName: dbUser.dataValues.last_name,
+              serviceProvider: dbUser.dataValues.service_provider,
+              petOwner: dbUser.dataValues.pet_owner,
+              email: dbUser.dataValues.email
+            };
+            //we update the loggedIn key to have a true value. we can use this value on the fron end to see if the user is logged in or not.
+            req.session.user.loggedIn = true;
+            //here the session's user object is updated with the users data. we can hit our /session endpoing witha  get request from the front end and get our user object.
+            req.session.user.currentUser = userObj;
+
+
             res.send({
               "code": 200,
               "success": "Login Successful"
@@ -221,6 +236,6 @@ router.post("/api/logout", function (req, res) {
   console.log("LOGGED OUT");
 });
 
-module.exports = router; 
+module.exports = router;
 
 

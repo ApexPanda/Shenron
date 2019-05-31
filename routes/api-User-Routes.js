@@ -62,4 +62,9 @@ module.exports = function (app) {
     console.log("api/user info: ", req.body);
   });
 
+  // Send session data to front-end
+  app.get("/api/session", function (req, res) {
+    res.json(req.session.user);
+  });
+
 }; 

@@ -48,6 +48,16 @@ app.use(session({
   }
 }));
 
+function userSetup(req, res, next) {
+  if (!req.session.user) {
+    req.session.user = {};
+    // req.session.user.loggedIn = false;
+  }
+  next();
+}
+//using middlewhere acrossed the entire application before any route gets hit.
+app.use(userSetup);
+
 // Handlebars
 app.engine(
   "handlebars",

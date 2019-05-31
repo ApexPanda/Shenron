@@ -27,13 +27,8 @@ $(document).ready(function () {
     location.reload();
   });
 
-  // $(document).on("click", "#logout-submit", function (event) {
-  //   event.preventDefault();
-  //   $.ajax({
-  //     url: "/api/logout",
-  //     method: "POST",
-  //   });
-  //   console.log("logout button clicked");
-  // });
+  $.get("/api/session").then(function (data) {
+    console.log(data);
+  });
 
 });

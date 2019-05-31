@@ -150,3 +150,8 @@ p.main-text {
 .card,.card-image{
   border-radius: 10px !important;
 }
+
+.brand-logo {
+  margin-top: 15px;
+  margin-left: 10px;
+}

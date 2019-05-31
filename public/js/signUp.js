@@ -85,7 +85,7 @@ $(document).ready(function () {
                 function () {
                     console.log("created new user");
                     // function (event) { return true };
-                    // location.reload();
+                    location.reload();
                 }
             );
 

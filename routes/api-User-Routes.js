@@ -49,22 +49,23 @@ module.exports = function (app) {
 
   // Create a new user
   app.post("/api/users", function (req, res) {
-    // var password = req.body.password;
-    // bcrypt.hash(password, saltRounds)
-    //   .then(function(hash) {
-    //     req.body.password = hash;
-    //     db.User.create(req.body).then(function (dbUser) {
-    //       res.json(dbUser);
-    //     });
+    var password = req.body.password;
+    bcrypt.hash(password, saltRounds)
+      .then(function (hash) {
+        req.body.password = hash;
+        db.User.create(req.body).then(function (dbUser) {
+          console.log("dbUser from .create: ", dbUser);
+          res.json(dbUser);
+        });
 
-    //   });
+      });
 
     console.log("api/user info: ", req.body);
 
-    db.User.create(req.body).then(function (dbUser) {
-      console.log("dbUser from .create: ", dbUser);
-      res.json(dbUser);
-    });
+    // db.User.create(req.body).then(function (dbUser) {
+    //   console.log("dbUser from .create: ", dbUser);
+    //   res.json(dbUser);
+    // });
 
   });
 

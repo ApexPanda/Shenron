@@ -1,7 +1,7 @@
 -- CREATE DATABASE fcflqw2ed3fwf6q1;
 USE fcflqw2ed3fwf6q1;
 
-
+DROP TABLE users;
 CREATE TABLE `users` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `first_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,

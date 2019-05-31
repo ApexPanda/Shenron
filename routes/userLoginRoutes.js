@@ -190,7 +190,7 @@ router.post("/api/login", function (req, res) {
       console.log("HASH: ", hash);
 
       bcrypt
-        .compare((password, hash, err, pwMatches) => {
+        .compare(password, hash, (err, pwMatches) => {
           console.log("I'm the password manager", pwMatches);
           if (pwMatches) {
             console.log("dbUserPassword :", dbUser.dataValues.password);

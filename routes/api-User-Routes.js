@@ -1,3 +1,4 @@
+
 /* eslint-disable camelcase */
 var db = require("../models");
 // var connection = require("../config/connection.js");
@@ -60,6 +61,20 @@ module.exports = function (app) {
 
       });
     console.log("api/user info: ", req.body);
+  });
+
+  // update user
+  app.put("/api/user/update", function (req, res) {
+    console.log(req.body);
+    db.User.update(
+      req.body, {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function (dbUser) {
+        res.json(dbUser);
+      });
   });
 
   // Send session data to front-end

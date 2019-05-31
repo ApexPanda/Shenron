@@ -20,8 +20,14 @@
     <li><a href="./profileResults?role=Owner">Pet Owners</a></li>
 </ul>
 
+<ul id="dropdown3" class="dropdown-content">
+    <li><a id="user-profile-link" href="">View Profile</a></li>
+    <li><a id="user-edit-link" href="">Edit Profile</a></li>
+    <li><a href="/api/logout">Logout</a></li>
+</ul>
+
 <nav class="transparent z-depth-0">
-    <div class="nav-wrapper">
+    <div class="nav-wrapper font3">
         <a href="/" class="brand-logo"><img src="./images/logo/logoFinal.png" alt="Logo" height="64"></a>
         {{!-- collapse trigger --}}
         <a href="#" data-target="mobile-collapse" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -30,24 +36,29 @@
             <li><a class="dropdown-trigger waves-effect" href="#!" data-target="dropdown1"><i
                         class="material-icons left">search</i>Search
                     Options<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li class="login-show hide"><a id="session-name" class="dropdown-trigger waves-effect" href="#!"
+                    data-target="dropdown3">
+                    Name<i class="material-icons right">arrow_drop_down</i></a></li>
             {{!-- Modal Trigger --}}
-            <li><a class="waves-effect modal-trigger" href="#modal1">Login</a></li>
+            <li class="logout-show"><a class="waves-effect modal-trigger" href="#modal1">Login</a></li>
             {{!-- Hidden dropdown only shows when user is logged in --}}
             {{!-- <li><a class="dropdown-trigger waves-effect" href="#!" data-target="dropdown3">{{USER NAME HERE}}<i class="material-icons right">arrow_drop_down</i></a></li> --}}
 
 
-            <li><a class="waves-effect" href="/signUp">Sign-Up</a></li>
+            <li class="logout-show"><a class="waves-effect" href="/signUp">Sign-Up</a></li>
+            <li id="profile-nav-image" class="center login-show hide"></li>
         </ul>
     </div>
 </nav>
+
 
 {{!-- collapsable sidebar --}}
 <ul class="sidenav" id="mobile-collapse">
     <li><a class="dropdown-trigger-collapse" href="#!" data-target="dropdown2"><i
                 class="material-icons left">search</i>Search
             Options<i class="material-icons right">arrow_drop_down</i></a></li>
-    <li><a href="#modal1" class="modal-trigger">Login</a></li>
-    <li><a href="/signUp">Sign-Up</a></li>
+    <li class="logout-show"><a href="#modal1" class="modal-trigger">Loout</a></li>
+    <li class="logout-show"><a href="/signUp">Sign-Up</a></out>
 </ul>
 {{!-- END NAVBAR ========================================== --}}
 
@@ -57,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 center">
-                    <h2 class="center-align">Login</h2>
+                    <h2 class="center-align font3">Login</h2>
                     <div class="row">
                         <form class="col s12" id="login-form">
                             <div class="row">
@@ -75,8 +86,8 @@
                             <div class="row">
                                 <div class="col m12">
                                     <p class="center-align">
-                                        <button class="btn btn-large waves-effect waves-light" type="submit"
-                                            name="action" id="login-submit">Login</button>
+                                        <button class="btn btn-large waves-effect waves-light font2 butlr-green"
+                                            type="submit" name="action" id="login-submit">Login</button>
                                     </p>
 
                                 </div>

@@ -1,0 +1,216 @@
+{{> navBar}}
+
+<div class="container grey lighten-4">
+
+    <div id="profile-header"></div>
+
+    <div class="content-padding">
+
+        {{#each users}}
+
+        {{!-- profile image and stats --}}
+        <div id="profile-div" class="row" data-user-id={{id}}>
+            <div class="col s12 m4">
+                <div class="card white">
+                    <div class="card-image profile-image"
+                        style="background-image: url('{{#if image}}{{image}}{{else}}{{#if pet_owner}}./images/site/default-profile-2.jpg{{else}}./images/site/default-profile-3.jpg{{/if}}{{/if}}')">
+                    </div>
+
+                    <div class="card-content">
+
+                        <textarea id="user-first-name" class="materialize-textarea"
+                            placeholder="{{first_name}}"></textarea>
+                        <label for="user-first-name">First</label>
+
+                        <textarea id="user-last-name" class="materialize-textarea"
+                            placeholder="{{last_name}}"></textarea>
+                        <label for="user-last-name">Last</label>
+
+                        <textarea id="user-image-url" class="materialize-textarea" placeholder="{{image}}"></textarea>
+                        <label for="user-image-url">image url</label>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <select id="user-role">
+                                    <option value="" disabled selected>{{role}}</option>
+                                    <option value="Owner">Owner</option>
+                                    <option value="Walker">Walker</option>
+                                    <option value="Groomer">Groomer</option>
+                                    <option value="Sitter">Sitter</option>
+                                </select>
+                                <label for="user-role">Role</label>
+                            </div>
+                        </div>
+
+                        <textarea id="user-location" class="materialize-textarea" placeholder="{{location}}"></textarea>
+                        <label for="user-location">location</label>
+
+                        <div class="row">
+                            <a data-user-id="{{id}}"
+                                class="user-save-btn waves-effect waves-light btn butlr-green right"><i
+                                    class="material-icons">done</i></a>
+                            <a data-user-id="{{id}}"
+                                class="user-cancel-btn waves-effect waves-light btn grey right margin-right-5"><i
+                                    class="material-icons">clear</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col s12 m8">
+                <div class="card white">
+                    <div class=" card-content">
+                        <span class="card-title butlr-green-text font3">About Me</span>
+                        <textarea id="user-about-me" class="materialize-textarea  long-text-box"
+                            placeholder="{{about_me}}"></textarea>
+                        <label for="user-about-me">About Me</label>
+
+                        <div class="row">
+                            <a data-about-id="{{id}}"
+                                class="about-save-btn waves-effect waves-light btn butlr-green right"><i
+                                    class="material-icons">done</i></a>
+                            <a data-about-id="{{id}}"
+                                class="about-cancel-btn waves-effect waves-light btn grey right margin-right-5"><i
+                                    class="material-icons">clear</i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+
+        <div class="">
+            {{!-- Profile pets --}}
+            <h4 class="center-align font1">My Pets</h4>
+
+            {{#each pets}}
+            <div class="row">
+                <div class="col s12">
+
+                    <div class="card horizontal white">
+                        <div class="card-image pet-image"
+                            style="background-image: url('{{#if image}}{{image}}{{else}}./images/site/default-profile-1.jpg{{/if}}')">
+                        </div>
+
+                        <div class="card-stacked">
+                            <div class="card-content">
+
+                                <textarea id="pet-name{{id}}" class="materialize-textarea "
+                                    placeholder="{{pet_name}}"></textarea>
+                                <label for="pet-name{{id}}">Name</label>
+
+                                <textarea id="pet-image-url{{id}}" class="materialize-textarea "
+                                    placeholder="{{image}}"></textarea>
+                                <label for="pet-image-url{{id}}">image url</label>
+
+                                <textarea id="pet-type{{id}}" class="materialize-textarea "
+                                    placeholder="{{pet_type}}"></textarea>
+                                <label for="pet-type{{id}}">Pet Type</label>
+
+                                <textarea id="pet-location{{id}}" class="materialize-textarea "
+                                    placeholder="{{location}}"></textarea>
+                                <label for="pet-location{{id}}">Location</label>
+
+                                <textarea id="pet-about-me{{id}}" class="materialize-textarea  long-text-box"
+                                    placeholder="{{about_me}}"></textarea>
+                                <label for="pet-about-me{{id}}">About Me</label>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+
+                                    <a data-pet-id="{{id}}"
+                                        class="pet-save-btn waves-effect waves-light btn butlr-green right"><i
+                                            class="material-icons">done</i></a>
+                                    <a data-pet-id="{{id}}"
+                                        class="pet-cancel-btn waves-effect waves-light btn grey right margin-right-5"><i
+                                            class="material-icons">clear</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {{else}}
+            <br>
+            <p class="center-align font2">No pets currently</p>
+            <br>
+            {{/each}}
+            <div id="new-pet-form"></div>
+            <div id="add-pet-btn-div" class="row right-align">
+                <span class="margin-right-5 butlr-pink-text font3">Add Pet</span>
+                <a id="add-pet-btn" class="btn-floating waves-effect waves-light butlr-pink"><i
+                        class="material-icons">add</i>
+                </a>
+            </div>
+
+            {{!-- Profile Reviews --}}
+            <h4 class="center-align font1">Reviews I Have Written</h4>
+            {{#each reviews}}
+            <div class="row">
+                <div class="col s12">
+
+                    <div class="card">
+                        <div class="card-content">
+
+                            <textarea id="review-title{{id}}" class="materialize-textarea "
+                                placeholder="{{title}}"></textarea>
+                            <label for="review-title{{id}}">Title</label>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <select id="review-rating{{id}}" class="">
+                                        <option value="" disabled selected>{{rating}}</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                    <label for="review-rating{{id}}">Rating</label>
+                                </div>
+                            </div>
+
+                            <textarea id="review-text{{id}}" class="materialize-textarea  long-text-box"
+                                placeholder="{{review}}"></textarea>
+                            <label for="review-text{{id}}">Review</label>
+
+                            <div class="row">
+
+                                <a data-review-id="{{id}}"
+                                    class="review-save-btn waves-effect waves-light btn butlr-green right"><i
+                                        class="material-icons">done</i></a>
+                                <a data-review-id="{{id}}"
+                                    class="review-cancel-btn waves-effect waves-light btn grey right margin-right-5"><i
+                                        class="material-icons">clear</i></a>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="./userProfile?id={{owner_id}}" class="font2 butlr-pinktext">View Profile</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            {{else}}
+            <br>
+            <p class="center-align font2">No reviews currently</p>
+            <br>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+
+<script src="./js/testChange.js"></script>

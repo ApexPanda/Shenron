@@ -29,6 +29,26 @@ $(document).ready(function () {
 
   $.get("/api/session").then(function (data) {
     console.log(data);
+
+    if ("currentUser" in data) {
+      var sessionid = data.currentUser.id;
+      var sessionImage = data.currentUser.image;
+      var sessionName = data.currentUser.firstName;
+      console.log("session id: " + sessionid);
+      console.log("session img: " + sessionImage);
+      console.log("session name: " + sessionName);
+      $("#profile-nav-image").css("backgroundImage", "url('" + sessionImage + "')");
+      $("#session-name").text(sessionName);
+      $("#user-profile-link").attr("href", "./userProfile?id=" + sessionid);
+      $("#user-edit-link").attr("href", "./testChange?id=" + sessionid);
+      $(".login-show").removeClass("hide");
+      $(".logout-show").addClass("hide");
+    } else {
+      console.log("User not logged in");
+    }
   });
+
+
+
 
 });

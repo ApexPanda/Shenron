@@ -31,10 +31,6 @@ body {
   height: 100%;
 }
 
-.nav-wrapper {
-  padding-left: 2em;
-  padding-right: 2em;
-}
 p.main-text {
   font-size: 3em;
 }
@@ -164,6 +160,30 @@ p.main-text {
   border-bottom-right-radius: 10px;
 }
 .brand-logo {
-  margin-top: 15px;
+  margin-top: 5px;
   margin-left: 10px;
+}
+
+/* user nav styles */
+#profile-nav-image {
+  width:40px;
+  height:40px;  
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  top:12px;
+  border-radius: 5px;
+}
+
+nav {
+
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.nav-wrapper {
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 200%!important;
+
 }

@@ -249,7 +249,8 @@ router.post("/api/login", function (req, res) {
               lastName: dbUser.dataValues.last_name,
               serviceProvider: dbUser.dataValues.service_provider,
               petOwner: dbUser.dataValues.pet_owner,
-              email: dbUser.dataValues.email
+              email: dbUser.dataValues.email,
+              image: dbUser.dataValues.image
             };
             //we update the loggedIn key to have a true value. we can use this value on the fron end to see if the user is logged in or not.
             req.session.user.loggedIn = true;

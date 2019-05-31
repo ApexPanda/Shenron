@@ -1,7 +1,7 @@
 -- CREATE DATABASE fcflqw2ed3fwf6q1;
 USE fcflqw2ed3fwf6q1;
 
-
+DROP TABLE users;
 CREATE TABLE `users` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `first_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -12,8 +12,8 @@ CREATE TABLE `users` (
  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
  `image` varbinary(200),
- `about_me` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
- `location` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+ `about_me` varchar(300) COLLATE utf8_unicode_ci NULL,
+ `location` varchar(30) COLLATE utf8_unicode_ci NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`)
@@ -25,8 +25,8 @@ CREATE TABLE `pets` (
  `owner_id` int(11) NOT NULL,
  `pet_type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `image` varbinary(200),
- `about_me` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
- `location` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+ `about_me` varchar(300) COLLATE utf8_unicode_ci NULL,
+ `location` varchar(30) COLLATE utf8_unicode_ci NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,
  PRIMARY KEY (`id`),

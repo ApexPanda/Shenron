@@ -1,3 +1,4 @@
+
 /* eslint-disable camelcase */
 var db = require("../models");
 // var connection = require("../config/connection.js");
@@ -64,21 +65,18 @@ module.exports = function (app) {
   });
 
   // update user stats
-  app.put("api/users/update/stats/:id", function (req, res) {
-    console.log(res);
-    console.log(req);
-    db.User.update({
-      first_name: req.body.first_name
-    }, {
+  app.put("/api/user/update", function (req, res) {
+    console.log(req.body);
+    db.User.update(
+      req.body, {
         where: {
-          id: req.params.id
-        },
-        returning: true,
-        plain: true
+          id: req.body.id
+        }
       })
       .then(function (dbUser) {
         res.json(dbUser);
       });
   });
+
 
 };

@@ -64,6 +64,7 @@ app.use("/", loginRouter);
 require("./routes/api-User-Routes")(app);
 require("./routes/api-Pet-Routes")(app);
 require("./routes/api-Review-Routes")(app);
+require("./routes/api-Posts-Routes")(app);
 
 
 var syncOptions = {

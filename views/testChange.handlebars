@@ -9,7 +9,7 @@
         {{#each users}}
 
         {{!-- profile image and stats --}}
-        <div class="row">
+        <div id="profile-div" class="row" data-user-id={{id}}>
             <div class="col s12 m4">
                 <div class="card white">
                     <div class="card-image profile-image"
@@ -139,6 +139,13 @@
             <p class="center-align font2">No pets currently</p>
             <br>
             {{/each}}
+            <div id="new-pet-form"></div>
+            <div id="add-pet-btn-div" class="row right-align">
+                <span class="margin-right-5 butlr-pink-text font3">Add Pet</span>
+                <a id="add-pet-btn" class="btn-floating waves-effect waves-light butlr-pink"><i
+                        class="material-icons">add</i>
+                </a>
+            </div>
 
             {{!-- Profile Reviews --}}
             <h4 class="center-align font1">Reviews I Have Written</h4>

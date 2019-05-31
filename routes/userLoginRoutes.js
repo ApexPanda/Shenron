@@ -73,19 +73,27 @@ router.get("/userProfile", function (req, res) {
     }
   });
 
+  var posts = db.Post.findAll({
+    where: {
+      // eslint-disable-next-line camelcase
+      owner_id: req.query.id
+    }
+  });
+
   Promise
-    .all([users, pets, reviews])
+    .all([users, pets, reviews, posts])
     .then(function (responses) {
       console.log("**********COMPLETE RESULTS****************");
       console.log(responses[0]); // user profile
       console.log(responses[1]); // all reports
       console.log(responses[2]); // report details
+      console.log(responses[3]); // post details? maybe? 
       res.render("userProfile", {
         users: responses[0],
         pets: responses[1],
         reviews: responses[2],
+        posts: responses[3]
       });
-
     })
     .catch(function (err) {
       console.log("**********ERROR RESULT****************");
@@ -195,9 +203,9 @@ router.get("/dashboard", redirectLogin, function (req, res) {
 });
 
 // Render 404 page for any unmatched routes
-router.get("*", function (req, res) {
-  res.render("404");
-});
+// router.get("*", function (req, res) {
+//   res.render("404");
+// });
 
 
 

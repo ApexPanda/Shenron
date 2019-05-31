@@ -12,39 +12,55 @@ $(document).ready(function () {
         var firstName = $("#user-first-name").val().trim();
         var lastName = $("#user-last-name").val().trim();
         var imageUrl = $("#user-image-url").val().trim();
-        var jobTitle = $("#user-role").val().trim();
-        var location = $("#user-location").val().trim();
+        var jobTitle = $("#user-role").val();
+        var userLocation = $("#user-location").val().trim();
         if (jobTitle === "Owner") {
             var petOwner = 1;
             var serviceProvider = 0;
-        } else {
+        } else if (jobTitle !== null) {
             var petOwner = 0;
             var serviceProvider = 1;
         }
 
         var newInfo = {
-            // eslint-disable-next-line camelcase
-            first_name: firstName,
-            // eslint-disable-next-line camelcase
-            last_name: lastName,
-            image: imageUrl,
-            // eslint-disable-next-line camelcase
-            service_provider: serviceProvider,
-            // eslint-disable-next-line camelcase
-            pet_owner: petOwner,
-            role: jobTitle,
+            id: userId,
         };
+
+        if (firstName.length !== 0) {
+            // eslint-disable-next-line camelcase
+            newInfo.first_name = firstName;
+        }
+        if (lastName.length !== 0) {
+            // eslint-disable-next-line camelcase
+            newInfo.last_name = lastName;
+        }
+        if (imageUrl.length !== 0) {
+            // eslint-disable-next-line camelcase
+            newInfo.image = imageUrl;
+        }
+        if (userLocation.length !== 0) {
+            newInfo.location = userLocation;
+        }
+
+        if (jobTitle !== null) {
+            newInfo.role = jobTitle;
+            // eslint-disable-next-line camelcase
+            newInfo.service_provider = serviceProvider;
+            // eslint-disable-next-line camelcase
+            newInfo.pet_owner = petOwner;
+        }
 
         console.log(newInfo);
 
 
-        $.ajax("/api/users/update/stats/" + userId, {
+        $.ajax("/api/user/update", {
             type: "PUT",
             data: newInfo
         }).then(
             function () {
                 console.log("Profile Updated.");
                 // function (event) { return true };
+                alert("Info Updated!");
                 location.reload();
             }
         );
@@ -63,16 +79,36 @@ $(document).ready(function () {
 
     });
 
+    // change about me 
+
     $(".about-save-btn").on("click", function () {
         userId = $(this).attr("data-about-id");
         console.log(userId);
 
         var aboutMe = $("#user-about-me").val().trim();
 
+        var newAbout = {
+            id: userId
+        };
 
-        console.log(aboutMe);
+        if (aboutMe.length !== 0) {
+            // eslint-disable-next-line camelcase
+            newAbout.about_me = aboutMe;
+        }
 
+        console.log(newAbout);
 
+        $.ajax("/api/user/update", {
+            type: "PUT",
+            data: newAbout
+        }).then(
+            function () {
+                console.log("Profile Updated.");
+                // function (event) { return true };
+                alert("Info Updated!");
+                location.reload();
+            }
+        );
     });
 
     $(".about-cancel-btn").on("click", function () {
@@ -82,6 +118,116 @@ $(document).ready(function () {
         $("#user-about-me").val("");
 
 
+    });
+
+    // Add Pets
+    $("#add-pet-btn").on("click", function () {
+        console.log("adding a pet");
+        $("#add-pet-btn-div").addClass("hide");
+        $("#new-pet-form").append(`
+          <div class="row">
+                <div class="col s12">
+
+                    <div class="card white">
+
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <span class="card-title butlr-green-text font3">New Pet</span>
+                                <textarea id="new-pet-name" class="materialize-textarea "
+                                    placeholder="ex. Spot"></textarea>
+                                <label for="new-pet-name">Name</label>
+
+                                <textarea id="new-pet-image-url" class="materialize-textarea "
+                                    placeholder="ex. https://website/image.jpg"></textarea>
+                                <label for="new-pet-image-url">image url</label>
+
+                                <textarea id="new-pet-type" class="materialize-textarea "
+                                    placeholder="ex. Dog"></textarea>
+                                <label for="new-pet-type">Pet Type</label>
+
+                                <textarea id="new-pet-location" class="materialize-textarea "
+                                    placeholder="ex. Miami, California"></textarea>
+                                <label for="new-pet-location">Location</label>
+
+                                <textarea id="new-pet-about-me" class="materialize-textarea  long-text-box"
+                                    placeholder="ex, He's the best!"></textarea>
+                                <label for="new-pet-about-me">About Me</label>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+
+                                    <a id="save-new-pet-btn" class="waves-effect waves-light btn butlr-green right"><i
+                                            class="material-icons">done</i></a>
+                                    <a id="clear-new-pet-btn"
+                                        class="waves-effect waves-light btn grey right margin-right-5"><i
+                                            class="material-icons">clear</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>`);
+
+        $("#save-new-pet-btn").on("click", function () {
+
+            userId = $("#profile-div").attr("data-user-id");
+            console.log(userId);
+
+            var petName = $("#new-pet-name").val().trim();
+            var petType = $("#new-pet-type").val().trim();
+            var petLocation = $("#new-pet-location").val().trim();
+            var petImage = $("#new-pet-image-url").val().trim();
+            var petAbout = $("#new-pet-about-me").val().trim();
+
+            if (petName.length === 0 || petType.length === 0 || petLocation.length === 0) {
+
+                alert("Name, Type, and location must be filled out.");
+
+            } else {
+
+                var newPet = {
+
+                    // eslint-disable-next-line camelcase
+                    owner_id: userId,
+                    // eslint-disable-next-line camelcase
+                    pet_name: petName,
+                    // eslint-disable-next-line camelcase
+                    pet_type: petType,
+                    location: petLocation,
+                };
+
+                if (petImage.length !== 0) {
+                    // eslint-disable-next-line camelcase
+                    newPet.image = petImage;
+                }
+                if (petAbout.length !== 0) {
+                    // eslint-disable-next-line camelcase
+                    newPet.about_me = petAbout;
+                }
+
+                console.log(newPet);
+                $("#new-pet-form").empty();
+                $("#add-pet-btn-div").removeClass("hide");
+
+                $.ajax("/api/pets", {
+                    type: "POST",
+                    data: newPet
+                }).then(
+                    function () {
+                        console.log("created new pet");
+                        // function (event) { return true };
+                        location.reload();
+                    }
+                );
+
+            }
+        });
+        $("#clear-new-pet-btn").on("click", function () {
+            console.log("pet cleared.");
+            $("#new-pet-form").empty();
+            $("#add-pet-btn-div").removeClass("hide");
+        });
     });
 
 

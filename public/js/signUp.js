@@ -79,7 +79,7 @@ $(document).ready(function () {
             console.log(newUser);
 
             $.ajax("/api/users", {
-                type: "POST",
+                method: "POST",
                 data: newUser
             }).then(
                 function () {

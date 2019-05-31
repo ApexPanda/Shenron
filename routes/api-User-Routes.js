@@ -55,13 +55,12 @@ module.exports = function (app) {
       .then(function (hash) {
         req.body.password = hash;
         db.User.create(req.body).then(function (dbUser) {
+          console.log("dbUser from .create: ", dbUser);
           res.json(dbUser);
         });
 
       });
-    // db.User.create(req.body).then(function (dbUser) {
-    //   res.json(dbUser);
-    // });
+    console.log("api/user info: ", req.body);
   });
 
   // update user
@@ -78,5 +77,9 @@ module.exports = function (app) {
       });
   });
 
+  // Send session data to front-end
+  app.get("/api/session", function (req, res) {
+    res.json(req.session.user);
+  });
 
-};
+}; 

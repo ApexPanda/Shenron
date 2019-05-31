@@ -163,3 +163,7 @@ p.main-text {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.brand-logo {
+  margin-top: 15px;
+  margin-left: 10px;
+}

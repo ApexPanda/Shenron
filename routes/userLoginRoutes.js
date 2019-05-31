@@ -230,20 +230,34 @@ router.post("/api/login", function (req, res) {
       where: {
         email: email
       }
-      // Somewhere in here is where we need to perform encryption =========================
     }).then(function (dbUser) {
-      console.log(dbUser);
+      // console.log("USER: ", dbUser);
       hash = dbUser.dataValues.password;
-      console.log(hash);
+      // console.log("HASH: ", hash);
       bcrypt
-        .compare((password, hash, err, pwMatches) => {
+        .compare(password, hash, (err, pwMatches) => {
           console.log("I'm the password manager", pwMatches);
           if (pwMatches) {
-            console.log("dbUserPassword :", dbUser.dataValues.password);
+            // console.log("dbUserPassword :", dbUser.dataValues.password);
             console.log("PASSWORD MATCHES");
             req.session.userId = dbUser.dataValues.id;
             console.log("SESSION Id: ", req.session.userId);
-            res.send({ // Need to send message with userId to plug into handlebars and change login button/ hide sign-up button
+
+            var userObj = {
+              id: dbUser.dataValues.id,
+              firstName: dbUser.dataValues.first_name,
+              lastName: dbUser.dataValues.last_name,
+              serviceProvider: dbUser.dataValues.service_provider,
+              petOwner: dbUser.dataValues.pet_owner,
+              email: dbUser.dataValues.email
+            };
+            //we update the loggedIn key to have a true value. we can use this value on the fron end to see if the user is logged in or not.
+            req.session.user.loggedIn = true;
+            //here the session's user object is updated with the users data. we can hit our /session endpoing witha  get request from the front end and get our user object.
+            req.session.user.currentUser = userObj;
+
+
+            res.send({
               "code": 200,
               "success": "Login Successful"
             });
@@ -252,9 +266,7 @@ router.post("/api/login", function (req, res) {
             res.end();
           }
         });
-
     });
-
   }
 });
 

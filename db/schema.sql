@@ -25,7 +25,7 @@ CREATE TABLE `pets` (
  `owner_id` int(11) NOT NULL,
  `pet_type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
  `image` varbinary(200),
- `about_me` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+ `about_me` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
  `location` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
  `created` datetime NOT NULL,
  `modified` datetime NOT NULL,

@@ -174,14 +174,65 @@ $(document).ready(function () {
     });
 
     $(".pet-cancel-btn").on("click", function () {
-        userId = $(this).attr("data-user-id");
+        petId = $(this).attr("data-pet-id");
+        console.log(petId);
+
+        $("#pet-name" + petId).val("");
+        $("#pet-image-url" + petId).val("");
+        $("#pet-type" + petId).val("");
+        $("#pet-location" + petId).val("");
+        $("#pet-about-me" + petId).val("");
+
+    });
+
+    // change review me 
+
+    $(".review-save-btn").on("click", function () {
+        reviewId = $(this).attr("data-review-id");
+        console.log(reviewId);
+
+        var reviewTitle = $("#review-title" + reviewId).val().trim();
+        var reviewText = $("#review-text" + reviewId).val().trim();
+        var reviewRating = $("#review-rating" + reviewId).val();
+
+        var alterReview = {
+            id: reviewId
+        };
+
+        if (reviewTitle.length !== 0) {
+            // eslint-disable-next-line camelcase
+            alterReview.title = reviewTitle;
+        }
+        if (reviewTitle.Text !== 0) {
+            // eslint-disable-next-line camelcase
+            alterReview.review = reviewText;
+        }
+        if (reviewTitle.rating !== null) {
+            // eslint-disable-next-line camelcase
+            alterReview.rating = reviewRating;
+        }
+
+        console.log(alterReview);
+
+        $.ajax("/api/review/update", {
+            type: "PUT",
+            data: alterReview
+        }).then(
+            function () {
+                console.log("Review Updated.");
+                // function (event) { return true };
+                alert("Review Updated!");
+                location.reload();
+            }
+        );
+    });
+
+    $(".review-cancel-btn").on("click", function () {
+        userId = $(this).attr("data-review-id");
         console.log(userId);
 
-        $("#user-first-name").val("");
-        $("#user-last-name").val("");
-        $("#user-image-url").val("");
-        $("#user-role").val("");
-        $("#user-location").val("");
+        $("#user-review-me").val("");
+
 
     });
 

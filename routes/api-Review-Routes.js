@@ -27,4 +27,18 @@ module.exports = function (app) {
       res.json(dbReview);
     });
   });
+
+  // update review
+  app.put("/api/review/update", function (req, res) {
+    console.log(req.body);
+    db.Review.update(
+      req.body, {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function (dbReview) {
+        res.json(dbReview);
+      });
+  });
 };

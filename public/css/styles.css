@@ -119,6 +119,9 @@ p.main-text {
 
 }
 
+.margin-right-5 {
+  margin-right: 5px;
+}
 /* fur butlr colors */
 
 .butlr-pink {
@@ -153,6 +156,10 @@ p.main-text {
   color: #ffff99 !important;
 }
 
-.card,.card-image{
+.card,.card-image {
   border-radius: 10px !important;
+}
+.card-action {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

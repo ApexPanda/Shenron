@@ -51,17 +51,34 @@ module.exports = function (app) {
   app.post("/api/users", function (req, res) {
     var password = req.body.password;
     bcrypt.hash(password, saltRounds)
-      .then(function(hash) {
+      .then(function (hash) {
         req.body.password = hash;
         db.User.create(req.body).then(function (dbUser) {
           res.json(dbUser);
         });
-      
+
       });
-  // db.User.create(req.body).then(function (dbUser) {
-  //   res.json(dbUser);
-  // });
+    // db.User.create(req.body).then(function (dbUser) {
+    //   res.json(dbUser);
+    // });
   });
 
-  
-}; 
+  // update user stats
+  app.put("api/users/update/stats/:id", function (req, res) {
+    console.log(res);
+    console.log(req);
+    db.User.update({
+      first_name: req.body.first_name
+    }, {
+        where: {
+          id: req.params.id
+        },
+        returning: true,
+        plain: true
+      })
+      .then(function (dbUser) {
+        res.json(dbUser);
+      });
+  });
+
+};

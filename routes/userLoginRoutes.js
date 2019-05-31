@@ -262,6 +262,6 @@ router.post("/api/logout", function (req, res) {
   console.log("LOGGED OUT");
 });
 
-module.exports = router; 
+module.exports = router;
 
 

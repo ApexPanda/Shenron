@@ -35,6 +35,8 @@ $(document).ready(function () {
       var sessionImage = data.currentUser.image;
       var sessionName = data.currentUser.firstName;
       console.log("session id: " + sessionid);
+      // Store id to session so we can pull it out 
+      sessionStorage.setItem("userId", sessionid);
       console.log("session img: " + sessionImage);
       console.log("session name: " + sessionName);
       $("#profile-nav-image").css("backgroundImage", "url('" + sessionImage + "')");

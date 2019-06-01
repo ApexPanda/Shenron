@@ -243,6 +243,8 @@ router.post("/api/login", function (req, res) {
             req.session.userId = dbUser.dataValues.id;
             console.log("SESSION Id: ", req.session.userId);
 
+
+
             var userObj = {
               id: dbUser.dataValues.id,
               firstName: dbUser.dataValues.first_name,

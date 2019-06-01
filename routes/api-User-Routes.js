@@ -58,7 +58,6 @@ module.exports = function (app) {
           console.log("dbUser from .create: ", dbUser);
           res.json(dbUser);
         });
-
       });
     console.log("api/user info: ", req.body);
   });

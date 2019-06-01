@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
 // Sets cookies to secure https when in production, 
 // but not in development
 app.use(session({
-  secret: process.env.SESSIONSECRET || config.sessionSecret || "cat",
+  secret: process.env.SESSIONSECRET || "cat",
   resave: false,
   saveUninitialized: true
 }));

@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Fredoka+One|Permanent+Marker|Sedgwick+Ave&display=swap');
+/* 
+font-family: 'Permanent Marker', cursive;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Sedgwick Ave', cursive;
+font-family: 'Fredoka One', cursive;
+*/
+
+/* fur butlr fonts */
+
+.font1{
+font-family: 'Fredoka One', cursive;
+}
+.font2{
+  font-family: 'Sedgwick Ave', cursive;
+}
+.font3{
+  font-family: 'Fjalla One', cursive
+}
+
+/* universe styles */
 html {
   height: 100%;
   margin: 0;
@@ -9,37 +30,7 @@ body {
 .main-content {
   height: 100%;
 }
-/* body.index {
-  background-image: url("../images/site/index.jpeg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-y: hidden;
-} */
-body.sign-up {
-  background-image: url("../images/site/sign-up.jpeg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  /* overflow-y: auto; */
-}
-/* body.results {
-  background-image: url("../images/site/results.jpeg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-y: auto;
-} */
-.nav-wrapper {
-  padding-left: 2em;
-  padding-right: 2em;
-}
+
 p.main-text {
   font-size: 3em;
 }
@@ -94,7 +85,8 @@ p.main-text {
 
 #profile-header {
   width: 100%;
-  height: 200px;
+  height: 250px;
+  background-image: url("../images/site/profile-header.png");
   background-position: center;
   background-size: cover;
 }
@@ -113,6 +105,19 @@ p.main-text {
   background-size: cover;
 }
 
+/* change profile styles */
+
+.long-text-box {
+  height: 200px !important;
+}
+
+.select-dropdown, .dropdown-trigger {
+
+}
+
+.margin-right-5 {
+  margin-right: 5px;
+}
 /* fur butlr colors */
 
 .butlr-pink {
@@ -147,11 +152,38 @@ p.main-text {
   color: #ffff99 !important;
 }
 
-.card,.card-image{
+.card,.card-image {
   border-radius: 10px !important;
 }
-
+.card-action {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 .brand-logo {
-  margin-top: 15px;
+  margin-top: 5px;
   margin-left: 10px;
+}
+
+/* user nav styles */
+#profile-nav-image {
+  width:40px;
+  height:40px;  
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  top:12px;
+  border-radius: 5px;
+}
+
+nav {
+
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.nav-wrapper {
+  padding-left: 2em;
+  padding-right: 2em;
+  font-size: 200%!important;
+
 }

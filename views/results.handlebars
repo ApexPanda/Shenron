@@ -1,17 +1,17 @@
 {{> navBar}}
 
 {{#if users.0.service_provider}}
-<h1 class="profile-heading white-text center">Pet {{users.0.role}}s</h1>
+<h1 class="profile-heading white-text center font1">Pet {{users.0.role}}s</h1>
 {{/if}}
 {{#if users.0.pet_owner}}
-<h1 class="profile-heading white-text center">Pet Owners</h1>
+<h1 class="profile-heading white-text center font1">Pet Owners</h1>
 {{/if}}
 <div class="container">
 
     {{#each users}}
 
     <div class="col s12 m9">
-        <h2 class="header white-text">{{first_name}} {{last_name}}</h2>
+        <h2 class="header white-text font3">{{first_name}} {{last_name}}</h2>
         <div class="card horizontal butlr-blue white-text">
             <div class="card-image result-profile-image"
                 style="background-image: url('{{#if image}}{{image}}{{else}}{{#if pet_owner}}./images/site/default-profile-2.jpg{{else}}./images/site/default-profile-3.jpg{{/if}}{{/if}}')">
@@ -23,14 +23,14 @@
                     <p>Average Rating: ****</p>
                 </div>
                 <div class="card-action">
-                    <a href="./userProfile?id={{id}}" class="butlr-yellow-text">More Info</a>
+                    <a href="./userProfile?id={{id}}" class="butlr-yellow-text font2">More Info</a>
                 </div>
             </div>
         </div>
     </div>
 
     {{else}}
-    <h2 class="profile-heading white-text center">No Results match your criteria</h2>
+    <h2 class="profile-heading white-text center font2">No Results match your criteria</h2>
     {{/each}}
 </div>
 

@@ -27,4 +27,18 @@ module.exports = function (app) {
       res.json(dbPet);
     });
   });
+
+  // update pet
+  app.put("/api/pet/update", function (req, res) {
+    console.log(req.body);
+    db.Pet.update(
+      req.body, {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function (dbPet) {
+        res.json(dbPet);
+      });
+  });
 };

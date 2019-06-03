@@ -277,7 +277,7 @@ router.post("/api/login", function (req, res) {
 router.post("/api/logout", function (req, res) {
   req.session.destroy(function (err) {
     if (err) {
-      return res.redirect("/dashboard");
+      return res.redirect("/userProfile");
     }
     res.clearCookie("connect.sid");
     res.redirect("/");

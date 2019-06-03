@@ -20,10 +20,16 @@
     <li><a href="./profileResults?role=Owner">Pet Owners</a></li>
 </ul>
 
+
 <ul id="dropdown3" class="dropdown-content">
     <li><a id="user-profile-link" href="">View Profile</a></li>
     <li><a id="user-edit-link" href="">Edit Profile</a></li>
-    <li><a href="/api/logout">Logout</a></li>
+    <li> 
+        <form method="POST" action="/api/logout">
+        <button type="submit"
+            name="action">Logout</button>
+        </form>
+    </li>
 </ul>
 
 <nav class="transparent z-depth-0">

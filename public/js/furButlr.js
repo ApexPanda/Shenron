@@ -23,7 +23,6 @@ $(document).ready(function () {
         }
       });
     }
-    // window.location.assign("./dashboard"); // may need to just location.reload
     location.reload();
   });
 

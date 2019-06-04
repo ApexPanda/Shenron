@@ -103,7 +103,7 @@ router.get("/userProfile", function (req, res) {
 
 });
 
-router.get("/testChange", function (req, res) {
+router.get("/testChange", redirectLogin, function (req, res) {
   console.log(req.query);
   console.log(req.query.id);
   var users = db.User.findAll({
